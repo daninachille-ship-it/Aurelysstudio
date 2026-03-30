@@ -1,0 +1,49 @@
+{
+  "company": {
+    "name": "Aurelys Studio",
+    "email": "contact@aurelys-studio.fr",
+    "website": "aurelys-studio.fr",
+    "location": "Basse-Normandie",
+    "service_zone": "Basse-Normandie & France entière",
+    "description": "Agence spécialisée dans la création de sites web premium pour les commerces locaux de France.",
+    "copyright": "© 2025 Aurelys Studio · Basse-Normandie, France · TVA non applicable (art. 293 B CGI)"
+  },
+  "hero": {
+    "eyebrow": "Agence web — Basse-Normandie"
+  },
+  "pricing": {
+    "setup_price": "1 200 €",
+    "setup_label": "Création du site · Une seule fois",
+    "setup_terms": "HT · paiement en 2 fois · 50% à la commande",
+    "monthly_price": "39 €",
+    "monthly_label": "Abonnement mensuel · Sans engagement",
+    "monthly_terms": "HT / mois · résiliable à tout moment",
+    "legal_note": "TVA non applicable · micro-entreprise (art. 293 B du CGI) · Le site vous appartient intégralement dès le paiement du setup"
+  },
+  "contact": {
+    "response_time": "Réponse sous 24h · Livraison 7 jours",
+    "payment_terms": "En 2 fois · Virement ou CB"
+  },
+  "faq": [
+    {
+      "question": "Est-ce que je dois avoir des compétences techniques ?",
+      "answer": "Aucune. L'espace admin est conçu pour être aussi simple que remplir un formulaire. Vous cliquez, vous modifiez, vous sauvegardez. Une vidéo tutoriel est incluse à la livraison."
+    },
+    {
+      "question": "Le délai de 7 jours est-il vraiment garanti ?",
+      "answer": "Oui, contractuellement. Le délai démarre dès réception de vos contenus via notre formulaire d'onboarding. Délai moyen constaté : 5 jours ouvrés."
+    },
+    {
+      "question": "Que se passe-t-il si je résilie l'abonnement ?",
+      "answer": "Le site vous appartient intégralement dès le paiement du setup. Si vous résiliez, vous récupérez tous les fichiers. Aucune donnée retenue."
+    },
+    {
+      "question": "Mon site sera-t-il visible sur Google ?",
+      "answer": "Votre site est techniquement optimisé pour le référencement dès la mise en ligne. Nous proposons aussi une optimisation de votre fiche Google Business en option."
+    },
+    {
+      "question": "J'ai déjà un nom de domaine, puis-je le garder ?",
+      "answer": "Oui. Nous connectons ou transférons votre domaine existant. Votre adresse web reste identique pour vos clients."
+    }
+  ]
+}

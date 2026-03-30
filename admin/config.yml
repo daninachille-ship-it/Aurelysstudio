@@ -1,0 +1,67 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: fr
+
+media_folder: "assets/img"
+public_folder: "/assets/img"
+
+collections:
+  - name: "settings"
+    label: "Paramètres du site"
+    files:
+
+      - name: "site"
+        label: "Toutes les informations"
+        file: "content/site.json"
+        format: json
+        fields:
+
+          - label: "Agence"
+            name: "company"
+            widget: "object"
+            summary: "Nom, email, localisation"
+            fields:
+              - { label: "Nom de l'agence", name: "name", widget: "string" }
+              - { label: "Email de contact", name: "email", widget: "string", pattern: ['.+@.+\..+', "Adresse email invalide"] }
+              - { label: "Site web", name: "website", widget: "string" }
+              - { label: "Localisation (ville/région)", name: "location", widget: "string", hint: "Ex: Basse-Normandie" }
+              - { label: "Zone de service", name: "service_zone", widget: "string", hint: "Ex: Basse-Normandie & France entière" }
+              - { label: "Description courte (footer)", name: "description", widget: "text" }
+              - { label: "Texte copyright", name: "copyright", widget: "string", hint: "Ex: © 2025 Aurelys Studio · ..." }
+
+          - label: "Hero (bandeau principal)"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Texte accroche (eyebrow)", name: "eyebrow", widget: "string", hint: "Ex: Agence web — Basse-Normandie" }
+
+          - label: "Tarifs"
+            name: "pricing"
+            widget: "object"
+            summary: "Setup {{fields.setup_price}} · Mensuel {{fields.monthly_price}}"
+            fields:
+              - { label: "Prix setup", name: "setup_price", widget: "string", hint: "Ex: 1 200 €" }
+              - { label: "Label setup", name: "setup_label", widget: "string", hint: "Ex: Création du site · Une seule fois" }
+              - { label: "Conditions setup", name: "setup_terms", widget: "string", hint: "Ex: HT · paiement en 2 fois · 50% à la commande" }
+              - { label: "Prix mensuel", name: "monthly_price", widget: "string", hint: "Ex: 39 €" }
+              - { label: "Label mensuel", name: "monthly_label", widget: "string", hint: "Ex: Abonnement mensuel · Sans engagement" }
+              - { label: "Conditions mensuel", name: "monthly_terms", widget: "string", hint: "Ex: HT / mois · résiliable à tout moment" }
+              - { label: "Mention légale (bas de page tarifs)", name: "legal_note", widget: "text" }
+
+          - label: "Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Délai affiché", name: "response_time", widget: "string", hint: "Ex: Réponse sous 24h · Livraison 7 jours" }
+              - { label: "Conditions de paiement", name: "payment_terms", widget: "string", hint: "Ex: En 2 fois · Virement ou CB" }
+
+          - label: "FAQ"
+            name: "faq"
+            widget: "list"
+            label_singular: "Question"
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Réponse", name: "answer", widget: "text" }

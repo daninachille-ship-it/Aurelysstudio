@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aurelys Studio — Sites web pour commerces locaux</title>
 <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -1309,7 +1310,7 @@ footer::after{
     <div class="hero-left">
       <div class="hero-eyebrow">
         <span class="hero-eyebrow-dot"></span>
-        Agence web — Basse-Normandie
+        <span data-c="hero.eyebrow">Agence web — Basse-Normandie</span>
       </div>
       <h1 class="hero-h1">
         Votre<br>
@@ -1366,8 +1367,8 @@ footer::after{
 <!-- STATS BAND -->
 <div class="stats-band">
   <div class="sb-item r"><div class="sb-n">7 j</div><div class="sb-l">Délai de livraison garanti</div></div>
-  <div class="sb-item r d1"><div class="sb-n">1 200 €</div><div class="sb-l">Setup fixe HT · Paiement en 2 fois</div></div>
-  <div class="sb-item r d2"><div class="sb-n">39 €</div><div class="sb-l">Abonnement mensuel HT · Sans engagement</div></div>
+  <div class="sb-item r d1"><div class="sb-n" data-c="pricing.setup_price">1 200 €</div><div class="sb-l">Setup fixe HT · Paiement en 2 fois</div></div>
+  <div class="sb-item r d2"><div class="sb-n" data-c="pricing.monthly_price">39 €</div><div class="sb-l">Abonnement mensuel HT · Sans engagement</div></div>
 </div>
 
 <!-- MANIFESTE -->
@@ -1386,11 +1387,11 @@ footer::after{
         <div class="mani-stat-l">Autonome</div>
       </div>
       <div class="mani-stat">
-        <div class="mani-stat-n">1 200€</div>
+        <div class="mani-stat-n" data-c="pricing.setup_price">1 200€</div>
         <div class="mani-stat-l">Prix fixe HT</div>
       </div>
       <div class="mani-stat">
-        <div class="mani-stat-n">39€</div>
+        <div class="mani-stat-n" data-c="pricing.monthly_price">39€</div>
         <div class="mani-stat-l">Par mois HT</div>
       </div>
     </div>
@@ -1501,9 +1502,9 @@ footer::after{
 
     <div class="t-card dark">
       <div class="t-badge">Setup</div>
-      <span class="t-tag">Création du site · Une seule fois</span>
-      <div class="t-price">1 200 €</div>
-      <div class="t-unit">HT · paiement en 2 fois · 50% à la commande</div>
+      <span class="t-tag" data-c="pricing.setup_label">Création du site · Une seule fois</span>
+      <div class="t-price" data-c="pricing.setup_price">1 200 €</div>
+      <div class="t-unit" data-c="pricing.setup_terms">HT · paiement en 2 fois · 50% à la commande</div>
       <div class="t-sep"></div>
       <div class="t-row"><div class="t-row-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="t-row-txt">Design premium sur-mesure</div></div>
       <div class="t-row"><div class="t-row-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="t-row-txt">Intégration de tout votre contenu</div></div>
@@ -1514,9 +1515,9 @@ footer::after{
     </div>
 
     <div class="t-card light">
-      <span class="t-tag">Abonnement mensuel · Sans engagement</span>
-      <div class="t-price">39 €</div>
-      <div class="t-unit">HT / mois · résiliable à tout moment</div>
+      <span class="t-tag" data-c="pricing.monthly_label">Abonnement mensuel · Sans engagement</span>
+      <div class="t-price" data-c="pricing.monthly_price">39 €</div>
+      <div class="t-unit" data-c="pricing.monthly_terms">HT / mois · résiliable à tout moment</div>
       <div class="t-sep"></div>
       <div class="t-row"><div class="t-row-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="t-row-txt">Hébergement haute disponibilité</div></div>
       <div class="t-row"><div class="t-row-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="t-row-txt">Nom de domaine inclus</div></div>
@@ -1527,7 +1528,7 @@ footer::after{
     </div>
 
   </div>
-  <p class="tarifs-note">TVA non applicable · micro-entreprise (art. 293 B du CGI) · Le site vous appartient intégralement dès le paiement du setup</p>
+  <p class="tarifs-note" data-c="pricing.legal_note">TVA non applicable · micro-entreprise (art. 293 B du CGI) · Le site vous appartient intégralement dès le paiement du setup</p>
 </section>
 
 <!-- DEMO -->
@@ -1565,38 +1566,38 @@ footer::after{
   <div class="faq-list">
     <div class="faq-item" data-n="01">
       <div class="faq-q" onclick="toggleFaq(this)">
-        <span class="faq-q-txt">Est-ce que je dois avoir des compétences techniques ?</span>
+        <span class="faq-q-txt" data-faq-q="0">Est-ce que je dois avoir des compétences techniques ?</span>
         <div class="faq-icon"></div>
       </div>
-      <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-line"></div><p class="faq-a-txt">Aucune. L'espace admin est conçu pour être aussi simple que remplir un formulaire. Vous cliquez, vous modifiez, vous sauvegardez. Une vidéo tutoriel est incluse à la livraison.</p></div></div>
+      <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-line"></div><p class="faq-a-txt" data-faq-a="0">Aucune. L'espace admin est conçu pour être aussi simple que remplir un formulaire. Vous cliquez, vous modifiez, vous sauvegardez. Une vidéo tutoriel est incluse à la livraison.</p></div></div>
     </div>
     <div class="faq-item" data-n="02">
       <div class="faq-q" onclick="toggleFaq(this)">
-        <span class="faq-q-txt">Le délai de 7 jours est-il vraiment garanti ?</span>
+        <span class="faq-q-txt" data-faq-q="1">Le délai de 7 jours est-il vraiment garanti ?</span>
         <div class="faq-icon"></div>
       </div>
-      <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-line"></div><p class="faq-a-txt">Oui, contractuellement. Le délai démarre dès réception de vos contenus via notre formulaire d'onboarding. Délai moyen constaté : 5 jours ouvrés.</p></div></div>
+      <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-line"></div><p class="faq-a-txt" data-faq-a="1">Oui, contractuellement. Le délai démarre dès réception de vos contenus via notre formulaire d'onboarding. Délai moyen constaté : 5 jours ouvrés.</p></div></div>
     </div>
     <div class="faq-item" data-n="03">
       <div class="faq-q" onclick="toggleFaq(this)">
-        <span class="faq-q-txt">Que se passe-t-il si je résilie l'abonnement ?</span>
+        <span class="faq-q-txt" data-faq-q="2">Que se passe-t-il si je résilie l'abonnement ?</span>
         <div class="faq-icon"></div>
       </div>
-      <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-line"></div><p class="faq-a-txt">Le site vous appartient intégralement dès le paiement du setup. Si vous résiliez, vous récupérez tous les fichiers. Aucune donnée retenue.</p></div></div>
+      <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-line"></div><p class="faq-a-txt" data-faq-a="2">Le site vous appartient intégralement dès le paiement du setup. Si vous résiliez, vous récupérez tous les fichiers. Aucune donnée retenue.</p></div></div>
     </div>
     <div class="faq-item" data-n="04">
       <div class="faq-q" onclick="toggleFaq(this)">
-        <span class="faq-q-txt">Mon site sera-t-il visible sur Google ?</span>
+        <span class="faq-q-txt" data-faq-q="3">Mon site sera-t-il visible sur Google ?</span>
         <div class="faq-icon"></div>
       </div>
-      <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-line"></div><p class="faq-a-txt">Votre site est techniquement optimisé pour le référencement dès la mise en ligne. Nous proposons aussi une optimisation de votre fiche Google Business en option.</p></div></div>
+      <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-line"></div><p class="faq-a-txt" data-faq-a="3">Votre site est techniquement optimisé pour le référencement dès la mise en ligne. Nous proposons aussi une optimisation de votre fiche Google Business en option.</p></div></div>
     </div>
     <div class="faq-item" data-n="05">
       <div class="faq-q" onclick="toggleFaq(this)">
-        <span class="faq-q-txt">J'ai déjà un nom de domaine, puis-je le garder ?</span>
+        <span class="faq-q-txt" data-faq-q="4">J'ai déjà un nom de domaine, puis-je le garder ?</span>
         <div class="faq-icon"></div>
       </div>
-      <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-line"></div><p class="faq-a-txt">Oui. Nous connectons ou transférons votre domaine existant. Votre adresse web reste identique pour vos clients.</p></div></div>
+      <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-line"></div><p class="faq-a-txt" data-faq-a="4">Oui. Nous connectons ou transférons votre domaine existant. Votre adresse web reste identique pour vos clients.</p></div></div>
     </div>
   </div>
 </section>
@@ -1613,19 +1614,19 @@ footer::after{
     <div class="c-details">
       <div class="c-row">
         <div class="c-lbl">Email</div>
-        <div class="c-val"><a href="mailto:contact@aurelys-studio.fr">contact@aurelys-studio.fr</a></div>
+        <div class="c-val"><a href="mailto:contact@aurelys-studio.fr" data-c="company.email">contact@aurelys-studio.fr</a></div>
       </div>
       <div class="c-row">
         <div class="c-lbl">Zone</div>
-        <div class="c-val">Basse-Normandie & France entière</div>
+        <div class="c-val" data-c="company.service_zone">Basse-Normandie & France entière</div>
       </div>
       <div class="c-row">
         <div class="c-lbl">Délai</div>
-        <div class="c-val">Réponse sous 24h · Livraison 7 jours</div>
+        <div class="c-val" data-c="contact.response_time">Réponse sous 24h · Livraison 7 jours</div>
       </div>
       <div class="c-row">
         <div class="c-lbl">Paiement</div>
-        <div class="c-val">En 2 fois · Virement ou CB</div>
+        <div class="c-val" data-c="contact.payment_terms">En 2 fois · Virement ou CB</div>
       </div>
     </div>
   </div>
@@ -1675,7 +1676,7 @@ footer::after{
 
     <div class="f-brand">
       <div class="f-logo"><span class="f-logo-mark">A</span>Aurelys Studio</div>
-      <p class="f-tagline">Agence spécialisée dans la création de sites web premium pour les commerces locaux de France.</p>
+      <p class="f-tagline" data-c="company.description">Agence spécialisée dans la création de sites web premium pour les commerces locaux de France.</p>
       <div class="f-avail">
         <span class="f-avail-dot"></span>
         Disponible · Délai 7 jours
@@ -1704,7 +1705,7 @@ footer::after{
     <div>
       <div class="f-col-title">Contact</div>
       <ul class="f-links-list">
-        <li><a href="mailto:contact@aurelys-studio.fr">contact@aurelys-studio.fr</a></li>
+        <li><a href="mailto:contact@aurelys-studio.fr" data-c="company.email">contact@aurelys-studio.fr</a></li>
         <li><a href="#">aurelys-studio.fr</a></li>
         <li><a href="#contact">Demander un devis →</a></li>
       </ul>
@@ -1713,7 +1714,7 @@ footer::after{
   </div>
 
   <div class="f-bottom">
-    <span class="f-copy">© 2025 Aurelys Studio · Basse-Normandie, France · TVA non applicable (art. 293 B CGI)</span>
+    <span class="f-copy" data-c="company.copyright">© 2025 Aurelys Studio · Basse-Normandie, France · TVA non applicable (art. 293 B CGI)</span>
     <div class="f-legal">
       <a href="#">Mentions légales</a>
       <a href="#">Politique de confidentialité</a>
@@ -1959,6 +1960,72 @@ function handleSubmit(e){
   items.forEach(item => obs.observe(item));
 })();
 
+</script>
+
+<script>
+// ── CHARGEMENT DU CONTENU DEPUIS /content/site.json ──
+(async function() {
+  try {
+    const r = await fetch('/content/site.json');
+    if (!r.ok) return;
+    const d = await r.json();
+
+    function txt(sel, val) {
+      if (val == null) return;
+      document.querySelectorAll(sel).forEach(function(el) { el.textContent = val; });
+    }
+
+    // Tarifs
+    txt('[data-c="pricing.setup_price"]',   d.pricing && d.pricing.setup_price);
+    txt('[data-c="pricing.setup_label"]',   d.pricing && d.pricing.setup_label);
+    txt('[data-c="pricing.setup_terms"]',   d.pricing && d.pricing.setup_terms);
+    txt('[data-c="pricing.monthly_price"]', d.pricing && d.pricing.monthly_price);
+    txt('[data-c="pricing.monthly_label"]', d.pricing && d.pricing.monthly_label);
+    txt('[data-c="pricing.monthly_terms"]', d.pricing && d.pricing.monthly_terms);
+    txt('[data-c="pricing.legal_note"]',    d.pricing && d.pricing.legal_note);
+
+    // Hero
+    txt('[data-c="hero.eyebrow"]', d.hero && d.hero.eyebrow);
+
+    // Société
+    txt('[data-c="company.service_zone"]', d.company && d.company.service_zone);
+    txt('[data-c="company.description"]',  d.company && d.company.description);
+    txt('[data-c="company.copyright"]',    d.company && d.company.copyright);
+
+    // Email (texte + href)
+    if (d.company && d.company.email) {
+      document.querySelectorAll('[data-c="company.email"]').forEach(function(el) {
+        el.textContent = d.company.email;
+        if (el.tagName === 'A') el.href = 'mailto:' + d.company.email;
+      });
+    }
+
+    // Contact
+    txt('[data-c="contact.response_time"]',  d.contact && d.contact.response_time);
+    txt('[data-c="contact.payment_terms"]',  d.contact && d.contact.payment_terms);
+
+    // FAQ
+    if (d.faq && Array.isArray(d.faq)) {
+      d.faq.forEach(function(item, i) {
+        var q = document.querySelector('[data-faq-q="' + i + '"]');
+        var a = document.querySelector('[data-faq-a="' + i + '"]');
+        if (q) q.textContent = item.question;
+        if (a) a.textContent = item.answer;
+      });
+    }
+  } catch(e) {}
+})();
+
+// Netlify Identity — redirect après login
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on('init', function(user) {
+    if (!user) {
+      window.netlifyIdentity.on('login', function() {
+        document.location.href = '/admin/';
+      });
+    }
+  });
+}
 </script>
 </body>
 </html>
