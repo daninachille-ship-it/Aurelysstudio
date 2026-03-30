@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurelys Studio — Sites web pour commerces locaux</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0C0C0C;--paper:#F8F6F1;--warm:#EDEAE2;--rule:#D8D4CA;--muted:#7A7670;
+  --accent:#2B3A5C;--accent2:#1A2640;--accent-l:#DCE5F5;--accent-mid:#5B78C0;--white:#FFFFFF;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;font-weight:300}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:28px 56px;transition:padding .5s,background .5s,border-color .5s;border-bottom:1px solid transparent}
+nav.s{padding:16px 56px;background:rgba(248,246,241,.96);backdrop-filter:blur(20px);border-bottom-color:var(--rule)}
+.n-logo{font-family:'Libre Baskerville',serif;font-size:1.1rem;font-weight:400;letter-spacing:.06em;color:var(--white);text-decoration:none;display:flex;align-items:center;gap:10px;transition:color .4s}
+nav.s .n-logo{color:var(--ink)}
+.n-logo-mark{width:28px;height:28px;background:var(--accent);display:flex;align-items:center;justify-content:center;font-family:'Libre Baskerville',serif;font-size:12px;color:var(--paper);font-style:italic;flex-shrink:0}
+.n-links{display:flex;align-items:center;gap:40px;list-style:none}
+.n-links a{font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);text-decoration:none;transition:color .2s;position:relative}
+nav.s .n-links a{color:var(--muted)}
+.n-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--accent);transition:width .3s}
+.n-links a:hover{color:var(--white)}
+nav.s .n-links a:hover{color:var(--accent)}
+.n-links a:hover::after{width:100%}
+.n-btn{padding:11px 28px;background:rgba(255,255,255,.15)!important;color:var(--white)!important;border:1px solid rgba(255,255,255,.3);transition:background .3s,transform .2s!important}
+nav.s .n-btn{background:var(--accent)!important;border-color:var(--accent)}
+.n-btn::after{display:none!important}
+.n-btn:hover{background:rgba(255,255,255,.25)!important;transform:translateY(-1px)}
+@media(max-width:768px){nav,nav.s{padding:18px 24px}.n-links{display:none}}
+
+/* ══ HERO IMMERSIF ══ */
+.hero{
+  min-height:100vh;
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:0 0 0 0;
+}
+
+/* Fond dégradé profond */
+.hero-bg{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 90% 70% at 15% 50%, rgba(43,58,92,1) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 90% at 85% 10%, rgba(74,94,138,.9) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 60% at 50% 100%, rgba(6,8,16,1) 0%, rgba(6,8,16,.98) 100%);
+  background-color:#060810;
+}
+
+/* Canvas particules */
+#particles{position:absolute;inset:0;z-index:1;width:100%!important;height:100%!important}
+
+/* Grille décorative */
+.hero-grid{
+  position:absolute;inset:0;z-index:2;
+  background-image:
+    linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:linear-gradient(to bottom,transparent 0%,black 30%,black 70%,transparent 100%);
+}
+
+/* Orbes lumineux */
+.orb{position:absolute;border-radius:50%;filter:blur(80px);z-index:2;opacity:0;animation:orbFloat 8s ease-in-out infinite}
+.orb-1{width:400px;height:400px;background:rgba(43,58,92,1);top:-60px;right:8%;animation-delay:0s}
+.orb-2{width:300px;height:300px;background:rgba(74,94,138,.9);bottom:5%;left:3%;animation-delay:3s}
+.orb-3{width:200px;height:200px;background:rgba(100,130,200,.7);top:30%;right:25%;animation-delay:1.5s}
+@keyframes checkPulse{
+  0%,100%{opacity:.4;transform:scale(1)}
+  50%{opacity:1;transform:scale(1.2)}
+}
+.inc-item:nth-child(2) .inc-check{animation-delay:.3s}
+.inc-item:nth-child(3) .inc-check{animation-delay:.6s}
+.inc-item:nth-child(4) .inc-check{animation-delay:.9s}
+.inc-item:nth-child(5) .inc-check{animation-delay:1.2s}
+.inc-item:nth-child(6) .inc-check{animation-delay:1.5s}
+.inc-item:nth-child(7) .inc-check{animation-delay:1.8s}
+.inc-item:nth-child(8) .inc-check{animation-delay:2.1s}
+.inc-item:nth-child(9) .inc-check{animation-delay:2.4s}
+.inc-item:nth-child(10) .inc-check{animation-delay:2.7s}
+@keyframes orbFloat{
+  0%{opacity:0;transform:translateY(20px)}
+  20%{opacity:1}
+  50%{transform:translateY(-20px)}
+  80%{opacity:1}
+  100%{opacity:0;transform:translateY(20px)}
+}
+
+.hero-content{
+  position:relative;z-index:10;
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:100vh;
+}
+
+/* Colonne gauche */
+.hero-left{
+  padding:160px 64px 80px 56px;
+  display:flex;flex-direction:column;justify-content:flex-end;
+}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);margin-bottom:32px;
+  opacity:0;animation:fadeUp .8s .2s ease forwards;
+}
+.hero-eyebrow-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:#6B8DD6;
+  animation:pulse 2s ease infinite;
+}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.5)}}
+
+.hero-h1{
+  font-family:'Libre Baskerville',serif;
+  font-size:clamp(3.5rem,7vw,7.5rem);
+  font-weight:400;line-height:.92;letter-spacing:-.03em;
+  color:var(--white);
+  opacity:0;animation:fadeUp .9s .35s ease forwards;
+}
+.hero-h1 .it{font-style:italic;color:rgba(255,255,255,.7)}
+.hero-h1 .line3{
+  display:block;
+  -webkit-text-stroke:1px rgba(255,255,255,.4);
+  color:transparent;
+  transition:color .3s,-webkit-text-stroke .3s;
+}
+.hero-h1:hover .line3{color:rgba(255,255,255,.15);-webkit-text-stroke:1px rgba(255,255,255,.6)}
+
+.hero-sub{
+  margin-top:40px;
+  display:flex;align-items:flex-start;gap:24px;
+  opacity:0;animation:fadeUp .8s .55s ease forwards;
+}
+.hero-sub-line{width:1px;height:64px;background:rgba(255,255,255,.15);flex-shrink:0;margin-top:4px}
+.hero-sub-txt{font-size:15px;font-weight:300;line-height:1.85;color:rgba(255,255,255,.7);max-width:360px}
+
+.hero-actions{
+  margin-top:48px;display:flex;gap:16px;
+  opacity:0;animation:fadeUp .8s .7s ease forwards;
+}
+.btn-hero-p{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 36px;
+  background:var(--white);color:var(--accent);
+  font-family:'Outfit',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:.18em;text-transform:uppercase;text-decoration:none;
+  transition:background .3s,transform .2s,box-shadow .2s;
+}
+.btn-hero-p:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(255,255,255,.15)}
+.btn-hero-g{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:16px 36px;
+  background:transparent;color:rgba(255,255,255,.6);
+  font-family:'Outfit',sans-serif;font-size:11px;font-weight:400;
+  letter-spacing:.18em;text-transform:uppercase;text-decoration:none;
+  border:1px solid rgba(255,255,255,.2);
+  transition:border-color .3s,color .3s,transform .2s;
+}
+.btn-hero-g:hover{border-color:rgba(255,255,255,.5);color:var(--white);transform:translateY(-2px)}
+
+/* Colonne droite — compteurs */
+.hero-right{
+  display:flex;flex-direction:column;justify-content:center;
+  padding:160px 56px 80px;
+  border-left:1px solid rgba(255,255,255,.06);
+  gap:0;
+  opacity:0;animation:fadeUp .8s .5s ease forwards;
+}
+.counter-item{
+  padding:40px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  position:relative;overflow:hidden;
+}
+.counter-item:last-child{border-bottom:none}
+.counter-item::before{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;width:0;
+  background:linear-gradient(90deg,rgba(43,58,92,.4),transparent);
+  transition:width .6s ease;
+}
+.counter-item:hover::before{width:100%}
+.counter-tag{
+  font-size:9px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(160,190,255,.7);margin-bottom:12px;
+  display:flex;align-items:center;gap:12px;
+}
+.counter-tag::before{content:'';width:20px;height:1px;background:rgba(255,255,255,.2)}
+.counter-n{
+  font-family:'Libre Baskerville',serif;
+  font-size:clamp(3rem,5vw,5.5rem);
+  font-weight:400;color:var(--white);
+  letter-spacing:-.04em;line-height:1;
+  display:flex;align-items:baseline;gap:4px;
+}
+.counter-suffix{
+  font-family:'Outfit',sans-serif;
+  font-size:1.4rem;font-weight:200;
+  color:rgba(255,255,255,.4);letter-spacing:0;
+}
+.counter-desc{
+  font-size:13px;font-weight:300;
+  color:rgba(255,255,255,.55);
+  margin-top:6px;letter-spacing:.04em;
+}
+.counter-bar{
+  width:100%;height:1px;
+  background:rgba(255,255,255,.12);
+  margin-top:20px;position:relative;overflow:hidden;
+}
+.counter-bar-fill{
+  position:absolute;left:0;top:0;bottom:0;
+  background:linear-gradient(90deg,#6B8DD6,rgba(255,255,255,.6));
+  width:0;transition:width 1.5s cubic-bezier(.16,1,.3,1);
+}
+
+/* Scroll indicator */
+.hero-scroll{
+  position:absolute;bottom:40px;left:56px;z-index:10;
+  display:flex;align-items:center;gap:16px;
+  opacity:0;animation:fadeUp .8s 1s ease forwards;
+}
+.scroll-track{width:48px;height:1px;background:rgba(255,255,255,.15);position:relative;overflow:hidden}
+.scroll-fill{position:absolute;left:0;top:0;bottom:0;width:30%;background:#6B8DD6;animation:scrollPulse 2s ease infinite}
+@keyframes scrollPulse{0%{left:-30%}100%{left:130%}}
+.scroll-txt{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+
+/* Ligne top */
+.hero-top-line{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#6B8DD6,rgba(255,255,255,.8),#6B8DD6,transparent);z-index:10;opacity:0;animation:fadeIn .5s .1s ease forwards}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{to{opacity:1}}
+
+@media(max-width:900px){
+  .hero-content{grid-template-columns:1fr}
+  .hero-right{border-left:none;border-top:1px solid rgba(255,255,255,.06);padding:48px 24px 60px}
+  .hero-left{padding:140px 24px 60px}
+  .hero-scroll{left:24px}
+}
+
+/* ══ STATS BAND ══ */
+.stats-band{background:var(--accent);display:grid;grid-template-columns:repeat(3,1fr);position:relative;overflow:hidden}
+.sb-item{position:relative;z-index:1}
+.sb-item{padding:48px 56px;border-right:1px solid rgba(248,246,241,.08);display:flex;flex-direction:column;gap:8px;cursor:default;transition:background .3s;position:relative;overflow:hidden}
+.sb-item::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:rgba(255,255,255,.15);transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.sb-item:hover{background:rgba(255,255,255,.05)}
+.sb-item:hover::after{transform:scaleX(1)}
+.sb-item:last-child{border-right:none}
+.sb-n{font-family:'Libre Baskerville',serif;font-size:clamp(2.5rem,4vw,4rem);font-weight:400;color:var(--paper);letter-spacing:-.04em;line-height:1}
+.sb-l{font-size:10px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:rgba(248,246,241,.4)}
+@media(max-width:768px){.stats-band{grid-template-columns:1fr}.sb-item{padding:32px 24px;border-right:none;border-bottom:1px solid rgba(248,246,241,.08)}.sb-item:last-child{border-bottom:none}}
+
+/* ══ SECTIONS COMMUNES ══ */
+.r{opacity:0;transform:translateY(32px);transition:opacity .8s ease,transform .8s ease}
+.r.on{opacity:1;transform:none}
+.r.d1{transition-delay:.1s}.r.d2{transition-delay:.2s}.r.d3{transition-delay:.3s}
+.s-label{font-size:9px;font-weight:400;letter-spacing:.32em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.s-label::before{content:'';width:28px;height:1px;background:var(--accent)}
+
+/* ══ MANIFESTE ══ */
+.manifeste{
+  padding:140px 56px;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;
+  border-bottom:1px solid var(--rule);
+  position:relative;overflow:hidden;
+  background:var(--paper);
+}
+
+/* Ligne verticale déco entre les colonnes */
+.manifeste::after{
+  content:'';
+  position:absolute;left:50%;top:15%;bottom:15%;
+  width:1px;
+  background:linear-gradient(to bottom,transparent,var(--rule) 30%,var(--rule) 70%,transparent);
+  pointer-events:none;
+}
+.manifeste>*{position:relative;z-index:1}
+
+/* Colonne gauche */
+.mani-left{}
+.mani-eyebrow{
+  display:inline-flex;align-items:center;gap:14px;
+  font-size:9px;font-weight:400;letter-spacing:.32em;
+  text-transform:uppercase;color:var(--accent);
+  margin-bottom:24px;
+}
+.mani-eyebrow::before{content:'';width:28px;height:1px;background:var(--accent)}
+.mani-h2{
+  font-family:'Libre Baskerville',serif;
+  font-size:clamp(2.2rem,4vw,3.8rem);
+  font-weight:400;line-height:1.1;letter-spacing:-.03em;
+  margin-bottom:40px;
+}
+.mani-h2 em{font-style:italic;color:var(--accent)}
+/* Stats visuels */
+.mani-stats{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:0;margin-top:40px;
+}
+.mani-stat{
+  padding:28px 0;border-top:1px solid var(--rule);
+  position:relative;overflow:hidden;
+  transition:padding-left .3s;
+}
+.mani-stat:nth-child(odd){padding-right:32px;border-right:1px solid var(--rule)}
+.mani-stat:nth-child(even){padding-left:32px}
+.mani-stat::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:2px;
+  background:var(--accent);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .5s cubic-bezier(.16,1,.3,1);
+}
+.mani-stat:hover::before{transform:scaleX(1)}
+.mani-stat-n{
+  font-family:'Libre Baskerville',serif;
+  font-size:2.8rem;font-weight:400;letter-spacing:-.04em;
+  color:var(--accent);line-height:1;margin-bottom:6px;
+}
+.mani-stat-l{
+  font-size:11px;font-weight:300;letter-spacing:.1em;
+  color:var(--muted);text-transform:uppercase;
+}
+
+/* Colonne droite */
+.mani-right{padding-top:0}
+.mani-p{
+  font-size:16px;font-weight:300;line-height:1.95;
+  color:var(--muted);margin-bottom:24px;
+}
+.mani-p strong{font-weight:400;color:var(--ink)}
+/* Citation premium */
+.mani-quote{
+  margin-top:48px;padding:0;
+  border-left:none;background:none;
+  position:relative;
+}
+.mani-quote::before{
+  content:'C';
+  position:absolute;top:-32px;left:-8px;
+  font-family:'Libre Baskerville',serif;
+  font-size:8rem;font-weight:400;
+  color:var(--accent);opacity:.15;line-height:1;
+}
+.mani-quote p{
+  font-family:'Libre Baskerville',serif;
+  font-size:1.35rem;font-weight:400;font-style:italic;
+  line-height:1.65;color:var(--ink);
+  padding-left:0;
+  position:relative;z-index:1;
+}
+.mani-quote cite{
+  display:flex;align-items:center;gap:14px;
+  margin-top:20px;
+  font-size:9px;font-weight:400;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--muted);
+  font-style:normal;
+}
+.mani-quote cite::before{content:'';width:24px;height:1px;background:var(--muted)}
+
+@media(max-width:900px){
+  .manifeste{grid-template-columns:1fr;gap:48px;padding:80px 24px}
+  .manifeste::after{display:none}
+  .mani-stat:nth-child(odd){padding-right:0}
+  .mani-stat:nth-child(even){padding-left:0;border-left:none}
+}
+
+/* ══ PROCESS ══ */
+.process{
+  padding:120px 56px;border-bottom:1px solid rgba(255,255,255,.08);
+  background:var(--ink);position:relative;overflow:hidden;
+}
+.process::before{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 40%,transparent 100%);
+}
+.process::after{
+  content:'03';position:absolute;right:-20px;bottom:-60px;
+  font-family:'Libre Baskerville',serif;font-size:28rem;font-weight:400;
+  color:rgba(255,255,255,.03);line-height:1;pointer-events:none;user-select:none;
+}
+.process-head{
+  text-align:center;max-width:640px;margin:0 auto 80px;
+}
+.process-head .s-label{justify-content:center}
+.process-head .s-label::before{display:none}
+.process-h2{font-family:'Libre Baskerville',serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:400;line-height:1.18;letter-spacing:-.02em;color:var(--paper)}
+.process-h2 em{font-style:italic;color:#6B8DD6}
+.process-intro{font-size:14px;font-weight:300;color:rgba(248,246,241,.45);line-height:1.8;margin-top:16px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);position:relative;z-index:1;gap:0}
+.steps::before{
+  content:'';position:absolute;
+  top:36px;left:calc(16.66% + 20px);right:calc(16.66% + 20px);
+  height:1px;
+  background:linear-gradient(90deg,rgba(107,141,214,.5),rgba(107,141,214,.2),rgba(107,141,214,.5));
+  z-index:0;
+}
+.step{
+  padding:0 40px 48px;border:none;
+  position:relative;overflow:visible;
+  display:flex;flex-direction:column;align-items:center;
+  z-index:1;transition:background .3s;
+}
+.step:hover{background:rgba(43,58,92,.2)}
+.step-circle{
+  width:72px;height:72px;border-radius:50%;
+  border:1px solid rgba(107,141,214,.35);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:36px;
+  background:rgba(43,58,92,.4);
+  position:relative;z-index:1;
+  transition:border-color .4s,background .4s,transform .4s;
+}
+.step:hover .step-circle{
+  border-color:rgba(107,141,214,.9);
+  background:rgba(43,58,92,.8);
+  transform:scale(1.08);
+}
+.step-num{
+  font-family:'Libre Baskerville',serif;
+  font-size:1.3rem;font-weight:400;
+  color:rgba(107,141,214,.9);letter-spacing:-.02em;
+  margin-bottom:0;
+}
+.step-title{
+  font-family:'Libre Baskerville',serif;font-size:1.2rem;font-weight:400;
+  color:rgba(248,246,241,.9);margin-bottom:14px;letter-spacing:-.01em;
+  text-align:center;transition:color .3s;
+}
+.step:hover .step-title{color:#A0BEFF}
+.step-desc{
+  font-size:13px;font-weight:300;color:rgba(248,246,241,.4);
+  line-height:1.85;text-align:center;flex:1;
+}
+.step-tag{
+  margin-top:24px;align-self:center;
+  font-size:9px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;
+  color:#6B8DD6;border-bottom:1px solid rgba(107,141,214,.4);padding-bottom:2px;
+  display:inline-block;
+}
+@media(max-width:900px){
+  .process{padding:80px 24px}
+  .steps{grid-template-columns:1fr}
+  .steps::before{display:none}
+  .step{align-items:flex-start;padding:40px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+  .step:last-child{border-bottom:none}
+  .step-circle{margin-bottom:24px}
+  .step-title,.step-desc{text-align:left}
+  .step-tag{align-self:flex-start}
+}
+
+/* ══ INCLUS ══ */
+.inclus{display:grid;grid-template-columns:340px 1fr;gap:0;border-bottom:1px solid var(--rule)}
+.inclus-left{
+  background:var(--accent);padding:80px 48px;
+  position:sticky;top:0;align-self:start;
+  overflow:hidden;
+}
+.inclus-left::before{
+  content:'';position:absolute;
+  width:300px;height:300px;border-radius:50%;
+  background:rgba(255,255,255,.03);
+  bottom:-100px;right:-100px;
+  animation:contactOrb 10s ease-in-out infinite;
+}
+.inclus-left .s-label{color:rgba(180,210,255,.8)}
+.inclus-left .s-label::before{background:rgba(180,210,255,.8)}
+.inclus-h2{font-family:'Libre Baskerville',serif;font-size:clamp(1.8rem,2.8vw,2.6rem);font-weight:400;line-height:1.2;letter-spacing:-.02em;color:var(--paper);margin-bottom:20px}
+.inclus-h2 em{font-style:italic;color:rgba(248,246,241,.55)}
+.inclus-sub{font-size:13px;font-weight:300;color:rgba(248,246,241,.5);line-height:1.8;margin-bottom:48px}
+.price-box{padding:28px 0;border-top:1px solid rgba(248,246,241,.15)}
+.price-box+.price-box{padding-top:20px;border-top:1px solid rgba(248,246,241,.1)}
+.price-lbl{font-size:9px;font-weight:400;letter-spacing:.22em;text-transform:uppercase;color:rgba(248,246,241,.4);margin-bottom:8px}
+.price-n{font-family:'Libre Baskerville',serif;font-size:2.6rem;font-weight:400;letter-spacing:-.03em;line-height:1;color:var(--paper)}
+.price-n span{font-family:'Outfit',sans-serif;font-size:1rem;font-weight:300;color:rgba(248,246,241,.4);letter-spacing:0}
+
+/* Items animés */
+.inclus-right{padding:60px 56px}
+.inc-items{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.inc-item{
+  display:flex;align-items:flex-start;gap:20px;
+  padding:28px 24px;
+  border-bottom:1px solid var(--rule);
+  border-right:1px solid var(--rule);
+  position:relative;overflow:hidden;
+  opacity:0;transform:translateY(20px);
+  transition:opacity .5s ease, transform .5s ease, background .3s;
+}
+.inc-item.visible{opacity:1;transform:translateY(0)}
+.inc-item:nth-child(2n){border-right:none}
+.inc-item:nth-last-child(-n+2){border-bottom:none}
+/* Ligne de survol */
+.inc-item::before{
+  content:'';position:absolute;
+  left:0;top:0;bottom:0;width:2px;
+  background:var(--accent);
+  transform:scaleY(0);transform-origin:bottom;
+  transition:transform .35s ease;
+}
+.inc-item:hover::before{transform:scaleY(1)}
+.inc-item:hover{background:var(--accent-l)}
+/* Icône */
+.inc-icon{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--accent-l);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent);
+  transition:background .3s,transform .3s,color .3s;
+}
+.inc-icon svg{width:16px;height:16px;stroke:currentColor}
+.inc-item:hover .inc-icon{background:var(--accent);color:var(--paper);transform:rotate(8deg) scale(1.1)}
+.inc-body{}
+.inc-name{font-size:14px;font-weight:500;color:var(--ink);letter-spacing:-.01em;margin-bottom:4px}
+.inc-desc{font-size:12px;font-weight:300;color:var(--muted);line-height:1.6}
+/* Délais d'animation en cascade */
+.inc-item:nth-child(1){transition-delay:.05s}
+.inc-item:nth-child(2){transition-delay:.1s}
+.inc-item:nth-child(3){transition-delay:.15s}
+.inc-item:nth-child(4){transition-delay:.2s}
+.inc-item:nth-child(5){transition-delay:.25s}
+.inc-item:nth-child(6){transition-delay:.3s}
+.inc-item:nth-child(7){transition-delay:.35s}
+.inc-item:nth-child(8){transition-delay:.4s}
+.inc-item:nth-child(9){transition-delay:.45s}
+.inc-item:nth-child(10){transition-delay:.5s}
+@media(max-width:900px){
+  .inclus{grid-template-columns:1fr}
+  .inclus-left{position:static}
+  .inclus-left,.inclus-right{padding:60px 24px}
+  .inc-items{grid-template-columns:1fr}
+  .inc-item{border-right:none}
+  .inc-item:nth-last-child(-n+2){border-bottom:1px solid var(--rule)}
+  .inc-item:last-child{border-bottom:none}
+}
+
+/* ══ TARIFS ══ */
+.tarifs-section{
+  padding:120px 56px;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  position:relative;overflow:hidden;
+}
+.tarifs-section::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 50% 60% at 0% 50%, rgba(43,58,92,.04) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 100% 50%, rgba(43,58,92,.03) 0%, transparent 60%);
+  pointer-events:none;
+}
+.tarifs-head{
+  text-align:center;margin-bottom:72px;
+}
+.tarifs-head .s-label{justify-content:center}
+.tarifs-head .s-label::before{display:none}
+.tarifs-head h2{
+  font-family:'Libre Baskerville',serif;
+  font-size:clamp(2rem,3.5vw,3.2rem);
+  font-weight:400;line-height:1.18;letter-spacing:-.02em;
+}
+.tarifs-head h2 em{font-style:italic;color:var(--accent)}
+.tarifs-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:24px;max-width:960px;margin:0 auto;
+  position:relative;z-index:1;
+}
+/* Card commune */
+.t-card{
+  border:1px solid var(--rule);
+  padding:56px 48px;
+  position:relative;overflow:hidden;
+  transition:transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease;
+}
+.t-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 24px 60px rgba(43,58,92,.12);
+}
+/* Ligne accent top qui s'anime au hover */
+.t-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  transform:scaleX(0);transform-origin:center;
+  transition:transform .5s cubic-bezier(.16,1,.3,1);
+}
+.t-card:hover::before{transform:scaleX(1)}
+/* Orbe de fond */
+.t-card::after{
+  content:'';position:absolute;
+  width:280px;height:280px;border-radius:50%;
+  bottom:-140px;right:-80px;
+  transition:transform .6s ease, opacity .6s ease;
+  opacity:0;
+}
+.t-card:hover::after{opacity:1;transform:scale(1.1)}
+
+/* Card sombre */
+.t-card.dark{background:var(--ink)}
+.t-card.dark::after{background:radial-gradient(circle, rgba(74,94,138,.3) 0%, transparent 70%)}
+.t-card.dark .t-tag{color:rgba(248,246,241,.3);font-size:9px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;display:block;margin-bottom:36px}
+.t-card.dark .t-price{font-family:'Libre Baskerville',serif;font-size:clamp(3.5rem,6vw,5.5rem);font-weight:400;letter-spacing:-.05em;line-height:1;color:var(--paper);margin-bottom:4px}
+.t-card.dark .t-unit{font-size:12px;font-weight:300;color:rgba(248,246,241,.3);margin-bottom:40px;letter-spacing:.04em}
+.t-card.dark .t-sep{height:1px;background:rgba(248,246,241,.08);margin-bottom:32px}
+.t-card.dark .t-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid rgba(248,246,241,.05)}
+.t-card.dark .t-row:last-child{border-bottom:none}
+.t-card.dark .t-row-icon{
+  width:28px;height:28px;border-radius:50%;
+  background:rgba(43,58,92,.8);border:1px solid rgba(107,141,214,.3);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  color:rgba(107,141,214,.8);transition:background .2s,border-color .2s;
+}
+.t-card.dark .t-row:hover .t-row-icon{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.t-card.dark .t-row-txt{font-size:13px;font-weight:300;color:rgba(248,246,241,.5);transition:color .2s}
+.t-card.dark .t-row:hover .t-row-txt{color:rgba(248,246,241,.85)}
+
+/* Card claire */
+.t-card.light{background:var(--paper)}
+.t-card.light::after{background:radial-gradient(circle, rgba(43,58,92,.06) 0%, transparent 70%)}
+.t-card.light .t-tag{color:var(--muted);font-size:9px;font-weight:400;letter-spacing:.28em;text-transform:uppercase;display:block;margin-bottom:36px}
+.t-card.light .t-price{font-family:'Libre Baskerville',serif;font-size:clamp(3.5rem,6vw,5.5rem);font-weight:400;letter-spacing:-.05em;line-height:1;color:var(--accent);margin-bottom:4px}
+.t-card.light .t-unit{font-size:12px;font-weight:300;color:var(--muted);margin-bottom:40px;letter-spacing:.04em}
+.t-card.light .t-sep{height:1px;background:var(--rule);margin-bottom:32px}
+.t-card.light .t-row{display:flex;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--rule)}
+.t-card.light .t-row:last-child{border-bottom:none}
+.t-card.light .t-row-icon{
+  width:28px;height:28px;border-radius:50%;
+  background:var(--accent-l);border:1px solid rgba(43,58,92,.15);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  color:var(--accent);transition:background .2s,border-color .2s;
+}
+.t-card.light .t-row:hover .t-row-icon{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.t-card.light .t-row-txt{font-size:13px;font-weight:300;color:var(--muted);transition:color .2s}
+.t-card.light .t-row:hover .t-row-txt{color:var(--ink)}
+
+/* Badge populaire */
+.t-badge{
+  position:absolute;top:28px;right:28px;
+  padding:5px 14px;
+  background:var(--accent);color:var(--paper);
+  font-size:9px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
+}
+
+/* Bouton refait */
+.t-cta{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  padding:18px 32px;margin-top:40px;
+  font-family:'Outfit',sans-serif;font-size:11px;font-weight:400;
+  letter-spacing:.2em;text-transform:uppercase;text-decoration:none;
+  position:relative;overflow:hidden;transition:transform .2s;
+  cursor:pointer;border:none;width:100%;
+}
+.t-cta::before{
+  content:'';position:absolute;inset:0;
+  transform:translateX(-101%);transition:transform .4s ease;
+}
+.t-cta:hover{transform:translateY(-2px)}
+.t-cta:hover::before{transform:translateX(0)}
+.t-cta span{position:relative;z-index:1}
+.t-cta.p{
+  background:var(--accent);color:var(--paper);
+  overflow:hidden;
+}
+.t-cta.p::after{
+  content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+  animation:btnShine 2.5s ease-in-out infinite;
+  z-index:2;
+}
+.t-cta.p::before{background:var(--accent2)}
+.t-cta.s{
+  background:transparent;color:var(--accent);
+  border:1px solid rgba(43,58,92,.2);
+}
+.t-cta.s::before{background:var(--accent-l)}
+
+/* Note de bas */
+.tarifs-note{
+  text-align:center;margin-top:36px;
+  font-size:12px;font-weight:300;color:var(--muted);
+  letter-spacing:.04em;
+}
+@media(max-width:768px){
+  .tarifs-section{padding:80px 24px}
+  .tarifs-grid{grid-template-columns:1fr;gap:16px}
+  .t-card{padding:40px 28px}
+}
+
+/* ══ DEMO ══ */
+.demo{
+  padding:120px 56px;
+  background:var(--ink);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  position:relative;overflow:hidden;
+}
+/* Grille de fond */
+.demo::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 70% 70% at 50% 50%,black 30%,transparent 100%);
+}
+/* Orbe bleu derrière l'écran */
+.demo::after{
+  content:'';position:absolute;
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(43,58,92,.5) 0%,transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  pointer-events:none;
+  animation:demoPulse 6s ease-in-out infinite;
+}
+@keyframes demoPulse{
+  0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.6}
+  50%{transform:translate(-50%,-50%) scale(1.15);opacity:1}
+}
+.demo-head{
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:end;gap:40px;margin-bottom:56px;
+  position:relative;z-index:1;
+}
+.demo-h2{font-family:'Libre Baskerville',serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:400;line-height:1.18;letter-spacing:-.02em;color:var(--paper)}
+.demo-h2 em{font-style:italic;color:#6B8DD6}
+.demo-sub{font-size:14px;font-weight:300;color:rgba(248,246,241,.4);line-height:1.8}
+/* Écran avec effets */
+.demo-screen{
+  width:100%;aspect-ratio:16/9;
+  background:#1A120A;
+  border:1px solid rgba(107,141,214,.2);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+  box-shadow:
+    0 0 0 1px rgba(107,141,214,.1),
+    0 40px 120px rgba(0,0,0,.6),
+    0 0 80px rgba(43,58,92,.4);
+  z-index:1;
+  transition:transform .6s cubic-bezier(.16,1,.3,1), box-shadow .6s ease;
+}
+.demo-screen:hover{
+  transform:translateY(-8px) scale(1.005);
+  box-shadow:
+    0 0 0 1px rgba(107,141,214,.3),
+    0 60px 140px rgba(0,0,0,.7),
+    0 0 120px rgba(43,58,92,.6);
+}
+/* Ligne lumineuse sur le bord haut de l'écran */
+.demo-screen::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(107,141,214,.8),rgba(255,255,255,.4),rgba(107,141,214,.8),transparent);
+  z-index:10;
+}
+.demo-bar{
+  background:rgba(10,10,14,.95);
+  padding:12px 20px;
+  display:flex;align-items:center;gap:16px;flex-shrink:0;
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.demo-dots{display:flex;gap:6px}
+.demo-dot{width:10px;height:10px;border-radius:50%}
+.demo-dot:nth-child(1){background:#ff5f57}
+.demo-dot:nth-child(2){background:#ffbd2e}
+.demo-dot:nth-child(3){background:#28c841}
+.demo-url{
+  flex:1;background:rgba(255,255,255,.05);
+  border-radius:4px;padding:4px 12px;
+  font-size:11px;color:rgba(255,255,255,.25);letter-spacing:.04em;
+}
+.demo-body{
+  flex:1;position:relative;
+  background:linear-gradient(135deg,#1A120A 0%,#3D2314 60%,#1A120A 100%);
+}
+.demo-body::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(26,18,10,.95) 0%,rgba(26,18,10,.1) 60%,transparent 100%);
+}
+/* Grille sur l'écran de démo */
+.demo-body::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+  background-size:40px 40px;
+  z-index:1;
+}
+.demo-nav-sim{
+  position:absolute;top:0;left:0;right:0;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 32px;z-index:3;
+  background:linear-gradient(to bottom,rgba(26,18,10,.6),transparent);
+}
+.dns-logo{font-family:'Libre Baskerville',serif;font-size:1rem;color:rgba(248,246,241,.9);font-weight:400;letter-spacing:.12em}
+.dns-links{display:flex;gap:24px}
+.dns-link{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(248,246,241,.35)}
+.demo-hero-sim{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:0 32px 28px;z-index:3;
+}
+.dhs-tag{
+  font-size:9px;letter-spacing:.28em;text-transform:uppercase;
+  color:rgba(196,150,74,.9);margin-bottom:10px;
+  display:flex;align-items:center;gap:10px;
+}
+.dhs-tag::before{content:'';width:20px;height:1px;background:rgba(196,150,74,.6)}
+.dhs-title{
+  font-family:'Libre Baskerville',serif;
+  font-size:clamp(1.8rem,4vw,3.5rem);
+  font-weight:300;color:rgba(248,246,241,.95);
+  line-height:.95;letter-spacing:-.02em;
+}
+.dhs-title em{font-style:italic;color:rgba(217,201,174,.6)}
+/* Caption */
+.demo-caption{
+  margin-top:28px;
+  display:flex;justify-content:space-between;align-items:center;
+  position:relative;z-index:1;
+}
+.demo-caption-text{font-size:12px;color:rgba(248,246,241,.25);font-weight:300;letter-spacing:.08em}
+.demo-cta{
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(107,141,214,.8);text-decoration:none;
+  border-bottom:1px solid rgba(107,141,214,.3);padding-bottom:2px;
+  transition:color .2s,border-color .2s;
+}
+.demo-cta:hover{color:var(--paper);border-color:rgba(248,246,241,.4)}
+@media(max-width:900px){
+  .demo{padding:80px 24px}
+  .demo-head{grid-template-columns:1fr}
+  .dns-links{display:none}
+}
+
+/* ══ FAQ ══ */
+.faq{
+  padding:120px 56px;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+  display:grid;grid-template-columns:1fr 2fr;
+  gap:80px;align-items:start;
+  position:relative;overflow:hidden;
+}
+.faq::before{
+  content:'?';position:absolute;
+  right:40px;top:40px;
+  font-family:'Libre Baskerville',serif;
+  font-size:22rem;font-weight:400;font-style:italic;
+  color:rgba(43,58,92,.04);line-height:1;
+  pointer-events:none;user-select:none;
+}
+
+.faq>*{position:relative;z-index:1}
+.faq-head-col{position:sticky;top:100px}
+.faq-h2{
+  font-family:'Libre Baskerville',serif;
+  font-size:clamp(2rem,3.5vw,3.2rem);
+  font-weight:400;line-height:1.18;letter-spacing:-.02em;
+  margin-bottom:20px;
+}
+.faq-h2 em{font-style:italic;color:var(--accent)}
+/* Items */
+.faq-list{display:flex;flex-direction:column}
+.faq-item{
+  border-bottom:1px solid var(--rule);
+  position:relative;
+}
+.faq-item:first-child{border-top:1px solid var(--rule)}
+/* Numéro discret */
+.faq-item::before{
+  content:attr(data-n);
+  position:absolute;left:-28px;top:26px;
+  font-family:'Libre Baskerville',serif;
+  font-size:11px;font-style:italic;
+  color:var(--rule);
+  transition:color .3s;
+}
+.faq-item:hover::before{color:var(--accent)}
+.faq-item.open::before{color:var(--accent)}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:28px 0;cursor:pointer;gap:32px;
+  transition:padding-left .3s;
+}
+.faq-q:hover{padding-left:6px}
+.faq-q-txt{
+  font-size:15px;font-weight:400;color:var(--ink);
+  letter-spacing:-.01em;line-height:1.4;
+  transition:color .3s;
+}
+.faq-item:hover .faq-q-txt{color:var(--accent)}
+.faq-item.open .faq-q-txt{color:var(--accent)}
+/* Icône +/× animée */
+.faq-icon{
+  width:32px;height:32px;flex-shrink:0;
+  border:1px solid var(--rule);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  transition:background .3s,border-color .3s,transform .4s;
+}
+.faq-icon::before,
+.faq-icon::after{
+  content:'';position:absolute;
+  background:var(--muted);
+  transition:background .3s, transform .4s, opacity .3s;
+}
+.faq-icon::before{width:12px;height:1px}
+.faq-icon::after{width:1px;height:12px}
+.faq-item.open .faq-icon{
+  background:var(--accent);
+  border-color:var(--accent);
+}
+.faq-item.open .faq-icon::before,
+.faq-item.open .faq-icon::after{background:var(--paper)}
+.faq-item.open .faq-icon::after{transform:rotate(90deg);opacity:0}
+/* Réponse */
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .45s cubic-bezier(.16,1,.3,1);
+}
+.faq-item.open .faq-a{max-height:400px}
+.faq-a-inner{
+  padding:0 0 28px;
+  display:flex;gap:20px;align-items:flex-start;
+}
+.faq-a-line{
+  width:2px;min-height:100%;background:var(--accent);
+  flex-shrink:0;opacity:.3;border-radius:1px;
+  align-self:stretch;
+}
+.faq-a-txt{
+  font-size:14px;font-weight:300;color:var(--muted);
+  line-height:1.9;
+}
+@media(max-width:768px){
+  .faq{padding:80px 24px;grid-template-columns:1fr;gap:40px}
+  .faq-head-col{position:static}
+  .faq::before{display:none}
+  .faq-item::before{display:none}
+}
+
+/* ══ CONTACT ══ */
+.contact{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  position:relative;overflow:hidden;
+  background:var(--ink);
+}
+/* Particules légères en fond */
+.contact::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 20%,transparent 100%);
+  pointer-events:none;
+}
+/* Panneau gauche */
+.contact-left{
+  padding:100px 64px;
+  position:relative;z-index:1;
+  border-right:1px solid rgba(255,255,255,.06);
+}
+.contact-left .s-label{color:rgba(180,210,255,.7)}
+.contact-left .s-label::before{background:rgba(180,210,255,.7)}
+.contact-h2{
+  font-family:'Libre Baskerville',serif;
+  font-size:clamp(2.5rem,4.5vw,4.5rem);
+  font-weight:400;line-height:1.0;letter-spacing:-.03em;
+  color:var(--paper);margin-bottom:24px;
+}
+.contact-h2 em{font-style:italic;color:rgba(248,246,241,.45)}
+.contact-p{
+  font-size:15px;font-weight:300;
+  color:rgba(248,246,241,.4);line-height:1.9;
+  margin-bottom:56px;max-width:360px;
+}
+/* Infos en blocs */
+.c-details{display:flex;flex-direction:column;gap:0}
+.c-row{
+  display:flex;align-items:center;
+  padding:18px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  gap:0;position:relative;
+  transition:padding-left .3s;
+}
+.c-row:first-child{border-top:1px solid rgba(255,255,255,.06)}
+.c-row:hover{padding-left:8px}
+.c-row::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:rgba(107,141,214,.6);
+  transform:scaleY(0);transform-origin:bottom;
+  transition:transform .35s ease;
+}
+.c-row:hover::before{transform:scaleY(1)}
+.c-lbl{
+  font-size:9px;font-weight:400;letter-spacing:.24em;
+  text-transform:uppercase;color:rgba(248,246,241,.25);
+  width:80px;flex-shrink:0;
+}
+.c-val{
+  font-size:14px;font-weight:300;
+  color:rgba(248,246,241,.6);
+  transition:color .2s;
+}
+.c-row:hover .c-val{color:rgba(248,246,241,.9)}
+.c-val a{color:inherit;text-decoration:none}
+/* Orbes déco */
+.contact-orb-1{
+  position:absolute;width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(43,58,92,.6) 0%,transparent 70%);
+  bottom:-150px;left:-100px;pointer-events:none;
+  animation:contactOrb 10s ease-in-out infinite;
+}
+.contact-orb-2{
+  position:absolute;width:200px;height:200px;border-radius:50%;
+  background:radial-gradient(circle,rgba(107,141,214,.2) 0%,transparent 70%);
+  top:60px;right:40px;pointer-events:none;
+  animation:contactOrb 7s ease-in-out infinite reverse;
+}
+
+/* Panneau droit — formulaire */
+.contact-right{
+  padding:100px 64px;
+  position:relative;z-index:1;
+  background:rgba(255,255,255,.02);
+}
+.contact-right .s-label{color:rgba(180,210,255,.7);margin-bottom:40px}
+.contact-right .s-label::before{background:rgba(180,210,255,.7)}
+
+/* Groupes */
+.form-group{
+  display:flex;flex-direction:column;gap:8px;
+  margin-bottom:24px;position:relative;
+}
+.f-lbl{
+  font-size:9px;font-weight:400;letter-spacing:.24em;
+  text-transform:uppercase;color:rgba(248,246,241,.3);
+  transition:color .2s;
+}
+.form-group:focus-within .f-lbl{color:rgba(107,141,214,.9)}
+
+/* Inputs */
+.f-input,.f-textarea{
+  width:100%;padding:16px 20px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-bottom:2px solid rgba(255,255,255,.08);
+  font-family:'Outfit',sans-serif;font-size:14px;
+  font-weight:300;color:var(--paper);outline:none;
+  transition:background .25s,border-color .25s;
+  border-radius:0;appearance:none;
+}
+.f-input::placeholder,.f-textarea::placeholder{
+  color:rgba(255,255,255,.18);
+}
+.f-input:focus,.f-textarea:focus{
+  background:rgba(43,58,92,.3);
+  border-color:rgba(255,255,255,.08);
+  border-bottom-color:rgba(107,141,214,.8);
+}
+.f-textarea{min-height:120px;resize:vertical;line-height:1.7}
+
+/* Ligne deco sous focus */
+.f-underline{
+  position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--accent),#6B8DD6);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .35s cubic-bezier(.16,1,.3,1);
+}
+.form-group:focus-within .f-underline{transform:scaleX(1)}
+
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* Bouton */
+.f-submit{
+  width:100%;padding:20px;
+  background:var(--accent);color:var(--paper);
+  font-family:'Outfit',sans-serif;
+  font-size:11px;font-weight:400;letter-spacing:.22em;
+  text-transform:uppercase;border:none;cursor:pointer;
+  position:relative;overflow:hidden;margin-top:8px;
+  transition:transform .2s;
+}
+.f-submit::before{
+  content:'';position:absolute;inset:0;
+  background:var(--accent2);
+  transform:translateX(-101%);transition:transform .4s ease;
+}
+.f-submit::after{
+  content:'';position:absolute;
+  top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
+  animation:btnShine 3s ease-in-out infinite;
+  z-index:2;
+}
+.f-submit:hover{transform:translateY(-2px)}
+.f-submit:hover::before{transform:translateX(0)}
+.f-submit span{position:relative;z-index:3}
+
+/* Message succès */
+.success-msg{
+  display:none;margin-top:24px;
+  padding:24px 28px;
+  background:rgba(43,58,92,.4);
+  border-left:3px solid rgba(107,141,214,.8);
+}
+.success-msg p{
+  font-size:14px;font-weight:300;
+  color:rgba(248,246,241,.7);line-height:1.7;
+}
+@media(max-width:900px){
+  .contact{grid-template-columns:1fr}
+  .contact-left,.contact-right{padding:60px 24px}
+  .f-row{grid-template-columns:1fr}
+  .contact-left{border-right:none;border-bottom:1px solid rgba(255,255,255,.06)}
+}
+
+/* ══ FOOTER ══ */
+footer{
+  background:var(--ink);
+  position:relative;overflow:hidden;
+}
+/* Ligne lumineuse en haut */
+footer::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,
+    transparent 0%,
+    rgba(107,141,214,.4) 20%,
+    rgba(255,255,255,.3) 50%,
+    rgba(107,141,214,.4) 80%,
+    transparent 100%);
+  animation:footerLine 4s ease-in-out infinite;
+}
+@keyframes footerLine{0%,100%{opacity:.4}50%{opacity:1}}
+
+/* Grand texte déco en fond */
+footer::after{
+  content:'AURELYS';
+  position:absolute;
+  bottom:-20px;left:50%;transform:translateX(-50%);
+  font-family:'Libre Baskerville',serif;
+  font-size:14rem;font-weight:400;font-style:italic;
+  color:rgba(255,255,255,.025);
+  white-space:nowrap;letter-spacing:.08em;
+  pointer-events:none;user-select:none;
+  line-height:1;
+}
+
+/* Zone principale */
+.f-main{
+  padding:80px 56px 56px;
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr 1fr;
+  gap:60px;
+  position:relative;z-index:1;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+/* Colonne marque */
+.f-brand{}
+.f-logo{
+  font-family:'Libre Baskerville',serif;
+  font-size:1.3rem;font-weight:400;letter-spacing:.06em;
+  color:var(--paper);
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:20px;
+}
+.f-logo-mark{
+  width:32px;height:32px;
+  background:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Libre Baskerville',serif;
+  font-size:14px;color:var(--paper);font-style:italic;
+  flex-shrink:0;
+}
+.f-tagline{
+  font-size:13px;font-weight:300;
+  color:rgba(248,246,241,.28);line-height:1.8;
+  max-width:220px;margin-bottom:36px;
+}
+/* Badge disponibilité */
+.f-avail{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 16px;
+  border:1px solid rgba(107,141,214,.25);
+  font-size:10px;font-weight:300;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(248,246,241,.4);
+}
+.f-avail-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#4CAF88;
+  animation:pulse 2s ease infinite;
+  flex-shrink:0;
+}
+
+/* Colonnes liens */
+.f-col-title{
+  font-size:9px;font-weight:400;letter-spacing:.28em;
+  text-transform:uppercase;color:rgba(248,246,241,.25);
+  margin-bottom:24px;
+}
+.f-links-list{list-style:none;display:flex;flex-direction:column;gap:0}
+.f-links-list li{border-bottom:1px solid rgba(255,255,255,.04)}
+.f-links-list li:last-child{border-bottom:none}
+.f-links-list a{
+  display:block;padding:10px 0;
+  font-size:13px;font-weight:300;
+  color:rgba(248,246,241,.35);text-decoration:none;
+  transition:color .2s,padding-left .2s;
+  position:relative;
+}
+.f-links-list a::before{
+  content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:0;height:1px;background:rgba(107,141,214,.6);
+  transition:width .3s ease;
+}
+.f-links-list a:hover{color:rgba(248,246,241,.85);padding-left:14px}
+.f-links-list a:hover::before{width:8px}
+
+/* Bas de page */
+.f-bottom{
+  padding:24px 56px;
+  display:flex;justify-content:space-between;align-items:center;
+  position:relative;z-index:1;
+}
+.f-copy{
+  font-size:11px;font-weight:300;
+  color:rgba(248,246,241,.18);letter-spacing:.06em;
+}
+.f-legal{
+  display:flex;gap:24px;
+}
+.f-legal a{
+  font-size:11px;font-weight:300;
+  color:rgba(248,246,241,.18);text-decoration:none;
+  letter-spacing:.06em;
+  transition:color .2s;
+}
+.f-legal a:hover{color:rgba(248,246,241,.5)}
+
+/* Scroll top */
+.f-scroll-top{
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:border-color .2s,background .2s,transform .2s;
+  color:rgba(255,255,255,.3);
+}
+.f-scroll-top:hover{
+  border-color:rgba(107,141,214,.5);
+  background:rgba(43,58,92,.4);
+  color:rgba(255,255,255,.7);
+  transform:translateY(-2px);
+}
+
+@media(max-width:900px){
+  .f-main{grid-template-columns:1fr 1fr;gap:40px;padding:60px 24px 40px}
+  .f-brand{grid-column:1/-1}
+  .f-bottom{padding:20px 24px;flex-wrap:wrap;gap:16px}
+  footer::after{font-size:6rem}
+}
+@media(max-width:480px){
+  .f-main{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="n-logo"><span class="n-logo-mark">A</span>Aurelys Studio</a>
+  <ul class="n-links">
+    <li><a href="#process">L'offre</a></li>
+    <li><a href="#inclus">Inclus</a></li>
+    <li><a href="#tarifs">Tarifs</a></li>
+    <li><a href="#demo">Démo</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" class="n-btn">Demander un devis</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <canvas id="particles"></canvas>
+  <div class="hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-top-line"></div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        Agence web — Basse-Normandie
+      </div>
+      <h1 class="hero-h1">
+        Votre<br>
+        <span class="it">vitrine</span><br>
+        <span class="line3">en ligne.</span>
+      </h1>
+      <div class="hero-sub">
+        <div class="hero-sub-line"></div>
+        <p class="hero-sub-txt">Sites web premium pour restaurants, cafés et commerces locaux. Livrés en 7 jours. Modifiables par vous-même, sans aucune compétence technique.</p>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-hero-p">Demander un devis</a>
+        <a href="#demo" class="btn-hero-g">Voir une démo →</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="counter-item">
+        <div class="counter-tag">Délai garanti</div>
+        <div class="counter-n">
+          <span class="counter-val" data-target="7" data-suffix=" j">0</span>
+          <span class="counter-suffix"> j</span>
+        </div>
+        <div class="counter-desc">De la commande à la mise en ligne</div>
+        <div class="counter-bar"><div class="counter-bar-fill" data-pct="100"></div></div>
+      </div>
+      <div class="counter-item">
+        <div class="counter-tag">Prix fixe setup HT</div>
+        <div class="counter-n">
+          <span class="counter-val" data-target="1200" data-prefix="" data-suffix="">0</span>
+          <span class="counter-suffix"> €</span>
+        </div>
+        <div class="counter-desc">Paiement en 2 fois · Sans surprise</div>
+        <div class="counter-bar"><div class="counter-bar-fill" data-pct="85"></div></div>
+      </div>
+      <div class="counter-item">
+        <div class="counter-tag">Abonnement mensuel HT</div>
+        <div class="counter-n">
+          <span class="counter-val" data-target="39" data-suffix="">0</span>
+          <span class="counter-suffix"> €/mois</span>
+        </div>
+        <div class="counter-desc">Hébergement + support · Sans engagement</div>
+        <div class="counter-bar"><div class="counter-bar-fill" data-pct="30"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-track"><div class="scroll-fill"></div></div>
+    <span class="scroll-txt">Découvrir</span>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="sb-item r"><div class="sb-n">7 j</div><div class="sb-l">Délai de livraison garanti</div></div>
+  <div class="sb-item r d1"><div class="sb-n">1 200 €</div><div class="sb-l">Setup fixe HT · Paiement en 2 fois</div></div>
+  <div class="sb-item r d2"><div class="sb-n">39 €</div><div class="sb-l">Abonnement mensuel HT · Sans engagement</div></div>
+</div>
+
+<!-- MANIFESTE -->
+<section class="manifeste" id="manifeste">
+
+  <div class="mani-left r">
+    <div class="mani-eyebrow">Notre conviction</div>
+    <h2 class="mani-h2">Un commerce local<br>mérite <em>mieux.</em></h2>
+    <div class="mani-stats">
+      <div class="mani-stat">
+        <div class="mani-stat-n">7 j</div>
+        <div class="mani-stat-l">Délai garanti</div>
+      </div>
+      <div class="mani-stat">
+        <div class="mani-stat-n">100%</div>
+        <div class="mani-stat-l">Autonome</div>
+      </div>
+      <div class="mani-stat">
+        <div class="mani-stat-n">1 200€</div>
+        <div class="mani-stat-l">Prix fixe HT</div>
+      </div>
+      <div class="mani-stat">
+        <div class="mani-stat-n">39€</div>
+        <div class="mani-stat-l">Par mois HT</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mani-right r d2">
+    <p class="mani-p">La majorité des restaurants, cafés et salons en France ont un site web qui leur fait du mal — <strong>vieillissant, difficile à modifier, invisible sur mobile.</strong> Leurs clients partent chez le concurrent qui présente mieux.</p>
+    <p class="mani-p">Aurelys Studio crée des sites premium livrés en 7 jours, avec une interface d'administration si simple que le propriétaire peut tout modifier lui-même — horaires, menu, photos.</p>
+    <div class="mani-quote">
+      <p>Un site web n'est pas une dépense. C'est le premier commercial de votre établissement — disponible 24h/24, 7j/7.</p>
+      <cite>Aurelys Studio</cite>
+    </div>
+  </div>
+
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="process-head r">
+    <div class="s-label">Comment ça marche</div>
+    <h2 class="process-h2">Trois étapes.<br><em>C'est tout.</em></h2>
+    <p class="process-intro">Aucune compétence technique requise. Vous nous donnez vos informations, nous créons votre site. Vous prenez le contrôle.</p>
+  </div>
+  <div class="steps">
+    <div class="step r">
+      <div class="step-circle"><div class="step-num">01</div></div>
+      <h3 class="step-title">Vous remplissez le formulaire</h3>
+      <p class="step-desc">En 15 minutes, vous transmettez tout ce dont nous avons besoin : nom, horaires, menu, photos, couleurs.</p>
+      <span class="step-tag">15 minutes</span>
+    </div>
+    <div class="step r d1">
+      <div class="step-circle"><div class="step-num">02</div></div>
+      <h3 class="step-title">Nous créons votre site</h3>
+      <p class="step-desc">Design premium sur-mesure, intégration de votre contenu, configuration de l'espace admin. Aperçu avant mise en ligne.</p>
+      <span class="step-tag">5 à 7 jours</span>
+    </div>
+    <div class="step r d2">
+      <div class="step-circle"><div class="step-num">03</div></div>
+      <h3 class="step-title">Vous prenez le contrôle</h3>
+      <p class="step-desc">Site en ligne. Accès admin transmis. Vidéo tutoriel incluse. Modifiez tout en 2 minutes depuis votre téléphone.</p>
+      <span class="step-tag">Autonomie totale</span>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUS -->
+<section class="inclus" id="inclus">
+  <div class="inclus-left r">
+    <div class="s-label">L'offre</div>
+    <h2 class="inclus-h2">Tout ce qui<br>est <em>inclus.</em></h2>
+    <p class="inclus-sub">Une offre pensée pour les commerces locaux. Un prix fixe. Aucune surprise.</p>
+    <div class="price-box"><div class="price-lbl">Setup — Création du site</div><div class="price-n">1 200 €<span> HT</span></div></div>
+    <div class="price-box"><div class="price-lbl">Abonnement mensuel</div><div class="price-n">39 €<span> HT/mois</span></div></div>
+  </div>
+  <div class="inclus-right">
+    <div class="inc-items" id="incItems">
+      <div class="inc-item">
+        <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></div>
+        <div class="inc-body"><div class="inc-name">Design premium sur-mesure</div><div class="inc-desc">Aux couleurs et à l'identité de votre établissement</div></div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
+        <div class="inc-body"><div class="inc-name">Interface admin autonome</div><div class="inc-desc">Modifiez tout vous-même, sans développeur</div></div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <div class="inc-body"><div class="inc-name">Responsive mobile</div><div class="inc-desc">Parfait sur téléphone, tablette et desktop</div></div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+        <div class="inc-body"><div class="inc-name">Google Maps intégré</div><div class="inc-desc">Adresse et itinéraire en un clic</div></div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+        <div class="inc-body"><div class="inc-name">Galerie photos</div><div class="inc-desc">5 emplacements modifiables à tout moment</div></div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></div>
+        <div class="inc-body"><div class="inc-name">Hébergement + domaine</div><div class="inc-desc">Inclus dans l'abonnement mensuel</div></div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+        <div class="inc-body"><div class="inc-name">Certificat SSL</div><div class="inc-desc">Site sécurisé https:// dès la mise en ligne</div></div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <div class="inc-body"><div class="inc-name">Bouton réservation</div><div class="inc-desc">TheFork, Resy ou votre numéro direct</div></div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
+        <div class="inc-body"><div class="inc-name">1 révision incluse</div><div class="inc-desc">On ajuste ensemble avant la mise en ligne</div></div>
+      </div>
+      <div class="inc-item">
+        <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <div class="inc-body"><div class="inc-name">Support email sous 24h</div><div class="inc-desc">Réponse garantie les jours ouvrés</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARIFS -->
+<section class="tarifs-section r" id="tarifs">
+  <div class="tarifs-head">
+    <div class="s-label">Tarifs</div>
+    <h2>Une offre simple.<br><em>Deux lignes.</em></h2>
+  </div>
+  <div class="tarifs-grid">
+
+    <div class="t-card dark">
+      <div class="t-badge">Setup</div>
+      <span class="t-tag">Création du site · Une seule fois</span>
+      <div class="t-price">1 200 €</div>
+      <div class="t-unit">HT · paiement en 2 fois · 50% à la commande</div>
+      <div class="t-sep"></div>
+      <div class="t-row"><div class="t-row-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="t-row-txt">Design premium sur-mesure</div></div>
+      <div class="t-row"><div class="t-row-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="t-row-txt">Intégration de tout votre contenu</div></div>
+      <div class="t-row"><div class="t-row-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="t-row-txt">Interface admin configurée</div></div>
+      <div class="t-row"><div class="t-row-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="t-row-txt">Mise en ligne sur votre domaine</div></div>
+      <div class="t-row"><div class="t-row-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="t-row-txt">1 révision + vidéo tutoriel</div></div>
+      <a href="#contact" class="t-cta p"><span>Commencer maintenant →</span></a>
+    </div>
+
+    <div class="t-card light">
+      <span class="t-tag">Abonnement mensuel · Sans engagement</span>
+      <div class="t-price">39 €</div>
+      <div class="t-unit">HT / mois · résiliable à tout moment</div>
+      <div class="t-sep"></div>
+      <div class="t-row"><div class="t-row-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="t-row-txt">Hébergement haute disponibilité</div></div>
+      <div class="t-row"><div class="t-row-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="t-row-txt">Nom de domaine inclus</div></div>
+      <div class="t-row"><div class="t-row-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="t-row-txt">Certificat SSL & sauvegardes</div></div>
+      <div class="t-row"><div class="t-row-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="t-row-txt">Support email sous 24h</div></div>
+      <div class="t-row"><div class="t-row-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div class="t-row-txt">Mises à jour techniques</div></div>
+      <a href="#contact" class="t-cta s"><span>En savoir plus →</span></a>
+    </div>
+
+  </div>
+  <p class="tarifs-note">TVA non applicable · micro-entreprise (art. 293 B du CGI) · Le site vous appartient intégralement dès le paiement du setup</p>
+</section>
+
+<!-- DEMO -->
+<section class="demo r" id="demo">
+  <div class="demo-head">
+    <div><div class="s-label">Exemple de réalisation</div><h2 class="demo-h2">Ce que nous<br><em>créons pour vous.</em></h2></div>
+    <p class="demo-sub">Un exemple de site premium pour un coffee shop. Chaque site est créé sur-mesure, aux couleurs de votre établissement.</p>
+  </div>
+  <div class="demo-screen">
+    <div class="demo-bar">
+      <div class="demo-dots"><div class="demo-dot"></div><div class="demo-dot"></div><div class="demo-dot"></div></div>
+      <div class="demo-url">aurelys-studio.fr/demo · Maison Blend — Coffee Shop · Paris 9e</div>
+    </div>
+    <div class="demo-body" style="background:#0C0C0C;display:flex;align-items:center;justify-content:center;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:16px;opacity:.25;user-select:none;pointer-events:none;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        <span style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:white">Votre photo ici</span>
+      </div>
+    </div>
+  </div>
+  <div class="demo-caption">
+    <span class="demo-caption-text">Design sur-mesure · Admin autonome · Livraison 7 jours</span>
+    <a href="#contact" class="demo-cta">Demander votre site →</a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq r" id="faq">
+  <div class="faq-head-col">
+    <div class="s-label">Questions fréquentes</div>
+    <h2 class="faq-h2">Vous avez des<br><em>questions ?</em></h2>
+    <p style="font-size:14px;font-weight:300;color:var(--muted);line-height:1.85;margin-top:20px">Toutes les réponses avant de nous contacter.</p>
+    <a href="#contact" style="display:inline-flex;align-items:center;gap:10px;margin-top:32px;font-size:11px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(43,58,92,.25);padding-bottom:3px;transition:border-color .2s">Nous écrire →</a>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item" data-n="01">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-txt">Est-ce que je dois avoir des compétences techniques ?</span>
+        <div class="faq-icon"></div>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-line"></div><p class="faq-a-txt">Aucune. L'espace admin est conçu pour être aussi simple que remplir un formulaire. Vous cliquez, vous modifiez, vous sauvegardez. Une vidéo tutoriel est incluse à la livraison.</p></div></div>
+    </div>
+    <div class="faq-item" data-n="02">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-txt">Le délai de 7 jours est-il vraiment garanti ?</span>
+        <div class="faq-icon"></div>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-line"></div><p class="faq-a-txt">Oui, contractuellement. Le délai démarre dès réception de vos contenus via notre formulaire d'onboarding. Délai moyen constaté : 5 jours ouvrés.</p></div></div>
+    </div>
+    <div class="faq-item" data-n="03">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-txt">Que se passe-t-il si je résilie l'abonnement ?</span>
+        <div class="faq-icon"></div>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-line"></div><p class="faq-a-txt">Le site vous appartient intégralement dès le paiement du setup. Si vous résiliez, vous récupérez tous les fichiers. Aucune donnée retenue.</p></div></div>
+    </div>
+    <div class="faq-item" data-n="04">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-txt">Mon site sera-t-il visible sur Google ?</span>
+        <div class="faq-icon"></div>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-line"></div><p class="faq-a-txt">Votre site est techniquement optimisé pour le référencement dès la mise en ligne. Nous proposons aussi une optimisation de votre fiche Google Business en option.</p></div></div>
+    </div>
+    <div class="faq-item" data-n="05">
+      <div class="faq-q" onclick="toggleFaq(this)">
+        <span class="faq-q-txt">J'ai déjà un nom de domaine, puis-je le garder ?</span>
+        <div class="faq-icon"></div>
+      </div>
+      <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-line"></div><p class="faq-a-txt">Oui. Nous connectons ou transférons votre domaine existant. Votre adresse web reste identique pour vos clients.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+  <div class="contact-left r">
+    <div class="contact-orb-1"></div>
+    <div class="contact-orb-2"></div>
+    <div class="s-label">Nous écrire</div>
+    <h2 class="contact-h2">Démarrons<br><em>ensemble.</em></h2>
+    <p class="contact-p">Envoyez-nous un message et nous vous répondons sous 24h avec un devis personnalisé. Gratuit et sans engagement.</p>
+    <div class="c-details">
+      <div class="c-row">
+        <div class="c-lbl">Email</div>
+        <div class="c-val"><a href="mailto:contact@aurelys-studio.fr">contact@aurelys-studio.fr</a></div>
+      </div>
+      <div class="c-row">
+        <div class="c-lbl">Zone</div>
+        <div class="c-val">Basse-Normandie & France entière</div>
+      </div>
+      <div class="c-row">
+        <div class="c-lbl">Délai</div>
+        <div class="c-val">Réponse sous 24h · Livraison 7 jours</div>
+      </div>
+      <div class="c-row">
+        <div class="c-lbl">Paiement</div>
+        <div class="c-val">En 2 fois · Virement ou CB</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-right r d2">
+    <div class="s-label">Formulaire de contact</div>
+    <form id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="f-row">
+        <div class="form-group">
+          <label class="f-lbl">Prénom</label>
+          <input type="text" class="f-input" placeholder="Marie" required>
+          <div class="f-underline"></div>
+        </div>
+        <div class="form-group">
+          <label class="f-lbl">Établissement</label>
+          <input type="text" class="f-input" placeholder="Le Café du Coin" required>
+          <div class="f-underline"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="f-lbl">Email</label>
+        <input type="email" class="f-input" placeholder="contact@monrestaurant.fr" required>
+        <div class="f-underline"></div>
+      </div>
+      <div class="form-group">
+        <label class="f-lbl">Type d'établissement</label>
+        <input type="text" class="f-input" placeholder="Restaurant, café, salon...">
+        <div class="f-underline"></div>
+      </div>
+      <div class="form-group">
+        <label class="f-lbl">Message</label>
+        <textarea class="f-textarea" placeholder="Dites-nous ce que vous cherchez..."></textarea>
+        <div class="f-underline"></div>
+      </div>
+      <button type="submit" class="f-submit"><span>Envoyer ma demande →</span></button>
+    </form>
+    <div class="success-msg" id="successMsg">
+      <p>Merci ! Nous avons bien reçu votre message et nous vous répondons sous 24h.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-main">
+
+    <div class="f-brand">
+      <div class="f-logo"><span class="f-logo-mark">A</span>Aurelys Studio</div>
+      <p class="f-tagline">Agence spécialisée dans la création de sites web premium pour les commerces locaux de France.</p>
+      <div class="f-avail">
+        <span class="f-avail-dot"></span>
+        Disponible · Délai 7 jours
+      </div>
+    </div>
+
+    <div>
+      <div class="f-col-title">L'offre</div>
+      <ul class="f-links-list">
+        <li><a href="#process">Comment ça marche</a></li>
+        <li><a href="#inclus">Ce qui est inclus</a></li>
+        <li><a href="#tarifs">Tarifs</a></li>
+        <li><a href="#demo">Démo</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="f-col-title">Informations</div>
+      <ul class="f-links-list">
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#manifeste">Notre approche</a></li>
+        <li><a href="#contact">Nous contacter</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="f-col-title">Contact</div>
+      <ul class="f-links-list">
+        <li><a href="mailto:contact@aurelys-studio.fr">contact@aurelys-studio.fr</a></li>
+        <li><a href="#">aurelys-studio.fr</a></li>
+        <li><a href="#contact">Demander un devis →</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="f-bottom">
+    <span class="f-copy">© 2025 Aurelys Studio · Basse-Normandie, France · TVA non applicable (art. 293 B CGI)</span>
+    <div class="f-legal">
+      <a href="#">Mentions légales</a>
+      <a href="#">Politique de confidentialité</a>
+    </div>
+    <div class="f-scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Retour en haut">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── NAV ──
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('s',scrollY>60);
+});
+
+// ── REVEAL ──
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}});
+},{threshold:.08});
+document.querySelectorAll('.r').forEach(el=>obs.observe(el));
+
+// ── PARTICULES ──
+(function(){
+  const canvas = document.getElementById('particles');
+  const ctx    = canvas.getContext('2d');
+  let W = 0, H = 0, pts = [];
+
+  const COLS = [
+    'rgba(74,110,200,',
+    'rgba(120,160,255,',
+    'rgba(200,220,255,',
+    'rgba(255,255,255,'
+  ];
+
+  function setSize(){
+    const hero = document.getElementById('home');
+    W = hero.offsetWidth  || window.innerWidth;
+    H = hero.offsetHeight || window.innerHeight;
+    canvas.width  = W;
+    canvas.height = H;
+  }
+
+  // Chaque particule a une position X et Y fixe dans le hero
+  // Elle ne monte pas — elle pulse et dérive légèrement sur place
+  function mkPt(){
+    return {
+      x    : Math.random() * W,
+      y    : Math.random() * H,          // répartie sur TOUTE la hauteur
+      ox   : 0,                           // offset x courant
+      oy   : 0,                           // offset y courant
+      size : Math.random() * 1.8 + 0.5,
+      // dérive lente aléatoire
+      vx   : (Math.random() - 0.5) * 0.25,
+      vy   : (Math.random() - 0.5) * 0.25,
+      // pulsation d'opacité
+      phase: Math.random() * Math.PI * 2,
+      speed: Math.random() * 0.008 + 0.004,
+      col  : COLS[Math.floor(Math.random() * COLS.length)]
+    };
+  }
+
+  function init(){
+    setSize();
+    pts = [];
+    for(let i = 0; i < 260; i++) pts.push(mkPt());
+  }
+
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+
+    const now = performance.now();
+
+    for(let i = 0; i < pts.length; i++){
+      const p = pts[i];
+
+      // Dérive lente — rebondir sur les bords
+      p.x += p.vx;
+      p.y += p.vy;
+      if(p.x < 0 || p.x > W) p.vx *= -1;
+      if(p.y < 0 || p.y > H) p.vy *= -1;
+      p.x = Math.max(0, Math.min(W, p.x));
+      p.y = Math.max(0, Math.min(H, p.y));
+
+      // Pulsation d'opacité
+      const alpha = 0.2 + 0.65 * (0.5 + 0.5 * Math.sin(now * p.speed + p.phase));
+
+      // Point
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = p.col + alpha + ')';
+      ctx.fill();
+
+      // Lignes de connexion
+      for(let j = i + 1; j < pts.length; j++){
+        const q  = pts[j];
+        const dx = p.x - q.x;
+        const dy = p.y - q.y;
+        const d  = dx*dx + dy*dy;
+        if(d < 14400){ // 120px²
+          const dist = Math.sqrt(d);
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = 'rgba(120,160,255,' + ((1 - dist/120) * 0.12) + ')';
+          ctx.lineWidth = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+
+  function start(){
+    init();
+    draw();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', () => setTimeout(start, 60));
+  } else {
+    setTimeout(start, 60);
+  }
+
+  window.addEventListener('resize', () => { init(); });
+})();
+
+// ── COMPTEURS ANIMÉS ──
+function animateCounter(el,target,duration){
+  const start=performance.now();
+  const isFloat=target%1!==0;
+  function tick(now){
+    const p=Math.min((now-start)/duration,1);
+    const ease=1-Math.pow(1-p,3);
+    const val=Math.round(target*ease);
+    el.textContent=val>=1000?val.toLocaleString('fr-FR'):val;
+    if(p<1)requestAnimationFrame(tick);
+    else el.textContent=target>=1000?target.toLocaleString('fr-FR'):target;
+  }
+  requestAnimationFrame(tick);
+}
+
+function animateBars(){
+  document.querySelectorAll('.counter-bar-fill').forEach(bar=>{
+    const pct=bar.dataset.pct;
+    setTimeout(()=>{bar.style.width=pct+'%'},200);
+  });
+}
+
+// Observer pour déclencher les compteurs quand visibles
+const counterObs=new IntersectionObserver(entries=>{
+  if(entries[0].isIntersecting){
+    document.querySelectorAll('.counter-val').forEach(el=>{
+      animateCounter(el,parseInt(el.dataset.target),1400);
+    });
+    animateBars();
+    counterObs.disconnect();
+  }
+},{threshold:.3});
+const heroRight=document.querySelector('.hero-right');
+if(heroRight) counterObs.observe(heroRight);
+
+// ── FAQ ──
+function toggleFaq(el){
+  const item=el.closest('.faq-item');
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+
+// ── FORM ──
+function handleSubmit(e){
+  e.preventDefault();
+  document.getElementById('contactForm').style.display='none';
+  document.getElementById('successMsg').style.display='block';
+}
+
+
+// ══ PARALLAXE HERO (seulement si curseur dynamique = pas touch) ══
+(function(){
+  // On vérifie que le device supporte hover (pas tactile)
+  if(!window.matchMedia('(hover:hover)').matches) return;
+
+  const heroLeft  = document.querySelector('.hero-left');
+  const heroH1    = document.querySelector('.hero-h1');
+  const heroSub   = document.querySelector('.hero-sub');
+  const heroAct   = document.querySelector('.hero-actions');
+  const heroBg    = document.querySelector('.hero-bg');
+  const heroGrid  = document.querySelector('.hero-grid');
+  const orbs      = document.querySelectorAll('.orb');
+
+  let ticking = false;
+
+  window.addEventListener('scroll', ()=>{
+    if(ticking) return;
+    requestAnimationFrame(()=>{
+      const y = window.scrollY;
+      const heroH = document.getElementById('home').offsetHeight;
+      if(y > heroH){ ticking=false; return; }
+
+      const pct = y / heroH; // 0 → 1
+
+      // Fond monte moins vite que le scroll
+      if(heroBg)   heroBg.style.transform   = `translateY(${y * 0.4}px)`;
+      if(heroGrid) heroGrid.style.transform = `translateY(${y * 0.25}px)`;
+
+      // Orbes dérivent
+      orbs.forEach((orb,i)=>{
+        const factor = 0.2 + i * 0.15;
+        orb.style.transform = `translateY(${y * factor}px)`;
+      });
+
+      // Texte se soulève légèrement (contre-parallaxe)
+      if(heroH1)   heroH1.style.transform   = `translateY(${-y * 0.08}px)`;
+      if(heroSub)  heroSub.style.transform  = `translateY(${-y * 0.05}px)`;
+      if(heroAct)  heroAct.style.transform  = `translateY(${-y * 0.04}px)`;
+
+      // Fondu progressif du hero
+      const opacity = Math.max(0, 1 - pct * 1.8);
+      if(heroLeft) heroLeft.style.opacity = opacity > 0.15 ? opacity : 0;
+
+      ticking = false;
+    });
+    ticking = true;
+  });
+})();
+
+
+
+// ══ INCLUS — ANIMATION AU SCROLL ══
+(function(){
+  const items = document.querySelectorAll('.inc-item');
+  if(!items.length) return;
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  items.forEach(item => obs.observe(item));
+})();
+
+</script>
+</body>
+</html>
