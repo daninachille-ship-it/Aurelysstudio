@@ -26,21 +26,51 @@
   "inclus": {
     "description": "Une offre pensée pour les commerces locaux. Un prix fixe. Aucune surprise.",
     "items": [
-      { "name": "Design premium sur-mesure", "desc": "Aux couleurs et à l'identité de votre établissement" },
-      { "name": "Interface admin autonome", "desc": "Modifiez tout vous-même, sans développeur" },
-      { "name": "Responsive mobile", "desc": "Parfait sur téléphone, tablette et desktop" },
-      { "name": "Google Maps intégré", "desc": "Adresse et itinéraire en un clic" },
-      { "name": "Galerie photos", "desc": "5 emplacements modifiables à tout moment" },
-      { "name": "Hébergement + domaine", "desc": "Inclus dans l'abonnement mensuel" },
-      { "name": "Certificat SSL", "desc": "Site sécurisé https:// dès la mise en ligne" },
-      { "name": "Bouton réservation", "desc": "TheFork, Resy ou votre numéro direct" },
-      { "name": "1 révision incluse", "desc": "On ajuste ensemble avant la mise en ligne" },
-      { "name": "Support email sous 24h", "desc": "Réponse garantie les jours ouvrés" }
+      {
+        "name": "Design premium sur-mesure",
+        "desc": "Aux couleurs et à l'identité de votre établissement"
+      },
+      {
+        "name": "Interface admin autonome",
+        "desc": "Modifiez tout vous-même, sans développeur"
+      },
+      {
+        "name": "Responsive mobile",
+        "desc": "Parfait sur téléphone, tablette et desktop"
+      },
+      {
+        "name": "Google Maps intégré",
+        "desc": "Adresse et itinéraire en un clic"
+      },
+      {
+        "name": "Galerie photos",
+        "desc": "5 emplacements modifiables à tout moment"
+      },
+      {
+        "name": "Hébergement + domaine",
+        "desc": "Inclus dans l'abonnement mensuel"
+      },
+      {
+        "name": "Certificat SSL",
+        "desc": "Site sécurisé https:// dès la mise en ligne"
+      },
+      {
+        "name": "Bouton réservation",
+        "desc": "TheFork, Resy ou votre numéro direct"
+      },
+      {
+        "name": "1 révision incluse",
+        "desc": "On ajuste ensemble avant la mise en ligne"
+      },
+      {
+        "name": "Support email sous 24h",
+        "desc": "Réponse garantie les jours ouvrés"
+      }
     ]
   },
   "demo": {
-    "photos": [],
-    "url_text": "aurelys-studio.fr/demo · Maison Blend — Coffee Shop · Paris 9e",
+    "photos": ["/assets/img/img_1233.jpeg"],
+    "url_text": "aurelys-studio.com/demo · Maison Blend — Coffee Shop · Paris 9e",
     "caption": "Design sur-mesure · Admin autonome · Livraison 7 jours"
   },
   "contact": {
