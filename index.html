@@ -805,7 +805,7 @@ nav.s .n-btn{background:var(--accent)!important;border-color:var(--accent)}
   background:none;overflow:hidden;display:grid;
 }
 .demo-body.has-photos::before,.demo-body.has-photos::after{display:none}
-.demo-body.has-photos img{width:100%;height:100%;object-fit:contain;display:block;min-height:0;background:#0C0C0C}
+.demo-body.has-photos img{width:100%;height:100%;object-fit:cover;display:block;min-height:0;}
 .demo-nav-sim{
   position:absolute;top:0;left:0;right:0;
   display:flex;justify-content:space-between;align-items:center;
@@ -2047,12 +2047,12 @@ function handleSubmit(e){
           // Grille adaptative : 1=plein, 2=côte à côte, 3=1 grande + 2 petites, 4=2x2
           var cols = photos.length === 1 ? '1fr' : '1fr 1fr';
           var rows = photos.length > 2 ? '1fr 1fr' : '1fr';
-          demoBody.style.cssText = 'display:grid;grid-template-columns:' + cols + ';grid-template-rows:' + rows + ';overflow:hidden;';
+          demoBody.style.cssText = 'display:grid;flex:1;grid-template-columns:' + cols + ';grid-template-rows:' + rows + ';overflow:hidden;';
           photos.forEach(function(src, i) {
             var img = document.createElement('img');
             img.src = src;
             img.alt = 'Exemple ' + (i + 1);
-            img.style.cssText = 'width:100%;height:100%;object-fit:contain;display:block;min-height:0;background:#0C0C0C;';
+            img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;min-height:0;';
             // 3 photos : 1ère image occupe les 2 lignes à gauche
             if (photos.length === 3 && i === 0) img.style.gridRow = 'span 2';
             demoBody.appendChild(img);
