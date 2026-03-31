@@ -76,14 +76,16 @@ collections:
             name: "demo"
             widget: "object"
             fields:
-              - label: "Photo de l'exemple"
-                name: "photo"
-                widget: "image"
+              - label: "Photos de l'exemple (1 à 4)"
+                name: "photos"
+                widget: "list"
                 required: false
-                hint: "Cette photo s'affichera dans la fenêtre de démo du site. Idéalement une capture d'écran de votre réalisation."
-                media_library:
-                  config:
-                    multiple: false
+                max: 4
+                hint: "Ajoutez 1 à 4 captures d'écran. Elles s'affichent automatiquement en grille : 1=pleine largeur, 2=côte à côte, 3=grande + 2 petites, 4=2×2."
+                field:
+                  label: "Photo"
+                  name: "photo"
+                  widget: "image"
               - { label: "Texte de la barre d'URL", name: "url_text", widget: "string", hint: "Ex: aurelysstudio.fr/demo · Maison Blend — Coffee Shop · Paris 9e" }
               - { label: "Légende sous la fenêtre", name: "caption", widget: "string", hint: "Ex: Design sur-mesure · Admin autonome · Livraison 7 jours" }
 

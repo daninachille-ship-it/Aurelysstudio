@@ -800,6 +800,12 @@ nav.s .n-btn{background:var(--accent)!important;border-color:var(--accent)}
   background-size:40px 40px;
   z-index:1;
 }
+/* Quand des photos sont chargées — grille adaptative 1 à 4 photos */
+.demo-body.has-photos{
+  background:none;overflow:hidden;display:grid;
+}
+.demo-body.has-photos::before,.demo-body.has-photos::after{display:none}
+.demo-body.has-photos img{width:100%;height:100%;object-fit:cover;display:block;min-height:0}
 .demo-nav-sim{
   position:absolute;top:0;left:0;right:0;
   display:flex;justify-content:space-between;align-items:center;
@@ -1865,13 +1871,26 @@ function animateBars(){
 }
 
 // Observer pour déclencher les compteurs quand visibles
+// Attend que window._counterReady soit true (contenu JSON chargé)
+window._counterReady=false;
 const counterObs=new IntersectionObserver(entries=>{
   if(entries[0].isIntersecting){
-    document.querySelectorAll('.counter-val').forEach(el=>{
-      animateCounter(el,parseInt(el.dataset.target),1400);
-    });
-    animateBars();
-    counterObs.disconnect();
+    function startCounters(){
+      document.querySelectorAll('.counter-val').forEach(el=>{
+        animateCounter(el,parseInt(el.dataset.target),1400);
+      });
+      animateBars();
+      counterObs.disconnect();
+    }
+    if(window._counterReady){
+      startCounters();
+    } else {
+      var _ct=setInterval(function(){
+        if(window._counterReady){clearInterval(_ct);startCounters();}
+      },30);
+      // Fallback : démarre quand même après 400ms si le JSON tarde
+      setTimeout(function(){if(!window._counterReady){window._counterReady=true;}},400);
+    }
   }
 },{threshold:.3});
 const heroRight=document.querySelector('.hero-right');
@@ -1981,19 +2000,19 @@ function handleSubmit(e){
     txt('[data-c="hero.cta_primary"]',  d.hero && d.hero.cta_primary);
     txt('[data-c="hero.cta_secondary"]',d.hero && d.hero.cta_secondary);
 
-    // Counters animés : mise à jour de data-target + valeur finale
+    // Counters animés : mise à jour de data-target avant l'animation
     if (d.pricing) {
       var setupNum   = parseInt((d.pricing.setup_price   || '').replace(/[^\d]/g, '')) || 1200;
       var monthlyNum = parseInt((d.pricing.monthly_price || '').replace(/[^\d]/g, '')) || 39;
       document.querySelectorAll('[data-c="counter.setup"]').forEach(function(el) {
         el.dataset.target = setupNum;
-        el.textContent = setupNum >= 1000 ? setupNum.toLocaleString('fr-FR') : setupNum;
       });
       document.querySelectorAll('[data-c="counter.monthly"]').forEach(function(el) {
         el.dataset.target = monthlyNum;
-        el.textContent = monthlyNum;
       });
     }
+    // Signale que le contenu est prêt → l'animation des counters peut démarrer
+    window._counterReady = true;
 
     // ── Tarifs ──
     txt('[data-c="pricing.setup_price"]',   d.pricing && d.pricing.setup_price);
@@ -2018,16 +2037,27 @@ function handleSubmit(e){
     // ── Démo ──
     txt('[data-c="demo.url_text"]', d.demo && d.demo.url_text);
     txt('[data-c="demo.caption"]',  d.demo && d.demo.caption);
-    if (d.demo && d.demo.photo) {
-      var demoBody = document.getElementById('demoBody');
-      if (demoBody) {
-        demoBody.innerHTML = '';
-        demoBody.style.padding = '0';
-        var img = document.createElement('img');
-        img.src = d.demo.photo;
-        img.alt = d.demo.url_text || 'Exemple de réalisation';
-        img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
-        demoBody.appendChild(img);
+    if (d.demo && Array.isArray(d.demo.photos)) {
+      var photos = d.demo.photos.filter(Boolean).slice(0, 4);
+      if (photos.length > 0) {
+        var demoBody = document.getElementById('demoBody');
+        if (demoBody) {
+          demoBody.innerHTML = '';
+          demoBody.className = 'demo-body has-photos';
+          // Grille adaptative : 1=plein, 2=côte à côte, 3=1 grande + 2 petites, 4=2x2
+          var cols = photos.length === 1 ? '1fr' : '1fr 1fr';
+          var rows = photos.length > 2 ? '1fr 1fr' : '1fr';
+          demoBody.style.cssText = 'display:grid;grid-template-columns:' + cols + ';grid-template-rows:' + rows + ';overflow:hidden;';
+          photos.forEach(function(src, i) {
+            var img = document.createElement('img');
+            img.src = src;
+            img.alt = 'Exemple ' + (i + 1);
+            img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;min-height:0;';
+            // 3 photos : 1ère image occupe les 2 lignes à gauche
+            if (photos.length === 3 && i === 0) img.style.gridRow = 'span 2';
+            demoBody.appendChild(img);
+          });
+        }
       }
     }
 
