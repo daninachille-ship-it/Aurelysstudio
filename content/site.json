@@ -1,26 +1,26 @@
 {
   "company": {
     "name": "Aurelys Studio",
-    "email": "contact@aurelys-studio.fr",
-    "website": "aurelys-studio.fr",
-    "location": "Basse-Normandie",
-    "service_zone": "Basse-Normandie & France entière",
+    "email": "contact@aurelyscollection.com",
+    "website": "aurelys-studio.com",
+    "location": "Normandie",
+    "service_zone": "France entière",
     "description": "Agence spécialisée dans la création de sites web premium pour les commerces locaux de France.",
-    "copyright": "© 2025 Aurelys Studio · Basse-Normandie, France · TVA non applicable (art. 293 B CGI)"
+    "copyright": "© 2026 Aurelys Studio ·Normandie, France · TVA non applicable (art. 293 B CGI)"
   },
   "hero": {
-    "eyebrow": "Agence web — Basse-Normandie",
+    "eyebrow": "Agence web — Normandie",
     "subtext": "Sites web premium pour restaurants, cafés et commerces locaux. Livrés en 7 jours. Modifiables par vous-même, sans aucune compétence technique.",
     "cta_primary": "Demander un devis",
     "cta_secondary": "Voir une démo →"
   },
   "pricing": {
-    "setup_price": "1 200 €",
+    "setup_price": "1 500 €",
     "setup_label": "Création du site · Une seule fois",
-    "setup_terms": "HT · paiement en 2 fois · 50% à la commande",
-    "monthly_price": "39 €",
+    "setup_terms": "paiement en 2 fois · 50% à la commande",
+    "monthly_price": "49 €",
     "monthly_label": "Abonnement mensuel · Sans engagement",
-    "monthly_terms": "HT / mois · résiliable à tout moment",
+    "monthly_terms": "/ mois · résiliable à tout moment",
     "legal_note": "TVA non applicable · micro-entreprise (art. 293 B du CGI) · Le site vous appartient intégralement dès le paiement du setup"
   },
   "inclus": {
