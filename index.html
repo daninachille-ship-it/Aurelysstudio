@@ -32,7 +32,24 @@ nav.s .n-links a:hover{color:var(--accent)}
 nav.s .n-btn{background:var(--accent)!important;border-color:var(--accent)}
 .n-btn::after{display:none!important}
 .n-btn:hover{background:rgba(255,255,255,.25)!important;transform:translateY(-1px)}
-@media(max-width:768px){nav,nav.s{padding:18px 24px}.n-links{display:none}}
+/* Hamburger */
+.n-burger{display:none;flex-direction:column;justify-content:center;gap:5px;cursor:pointer;background:none;border:none;padding:6px;z-index:210}
+.n-burger span{display:block;width:22px;height:1.5px;background:rgba(255,255,255,.8);transition:transform .3s,opacity .3s}
+nav.s .n-burger span{background:var(--ink)}
+.n-burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.n-burger.open span:nth-child(2){opacity:0}
+.n-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+/* Menu mobile overlay */
+.n-mobile{display:none;position:fixed;inset:0;background:var(--ink);z-index:195;flex-direction:column;align-items:center;justify-content:center;gap:4px;opacity:0;transition:opacity .3s;pointer-events:none}
+.n-mobile.open{display:flex;opacity:1;pointer-events:all}
+.n-mobile a{font-family:'Libre Baskerville',serif;font-size:clamp(1.6rem,8vw,2.8rem);font-weight:400;font-style:italic;color:rgba(248,246,241,.6);text-decoration:none;padding:10px 0;transition:color .2s}
+.n-mobile a:hover,.n-mobile a:focus{color:var(--paper)}
+.n-mobile-cta{margin-top:20px;padding:14px 40px!important;background:var(--accent)!important;color:var(--paper)!important;font-family:'Outfit',sans-serif!important;font-size:10px!important;font-weight:500!important;letter-spacing:.2em!important;text-transform:uppercase!important;font-style:normal!important}
+@media(max-width:768px){
+  nav,nav.s{padding:18px 24px}
+  .n-links{display:none}
+  .n-burger{display:flex}
+}
 
 /* ══ HERO IMMERSIF ══ */
 .hero{
@@ -241,6 +258,48 @@ nav.s .n-btn{background:var(--accent)!important;border-color:var(--accent)}
   .hero-right{border-left:none;border-top:1px solid rgba(255,255,255,.06);padding:48px 24px 60px}
   .hero-left{padding:140px 24px 60px}
   .hero-scroll{left:24px}
+}
+@media(max-width:768px){
+  /* Hero */
+  .hero-content{min-height:auto}
+  .hero-left{min-height:100svh;padding:100px 20px 56px}
+  .hero-h1{font-size:clamp(2.6rem,11vw,4rem)}
+  .hero-sub{gap:16px}
+  .hero-sub-txt{font-size:14px}
+  .hero-actions{flex-wrap:wrap;gap:10px}
+  .btn-hero-p,.btn-hero-g{width:100%;justify-content:center;padding:15px 20px}
+  .hero-right{padding:40px 20px 52px}
+  .hero-scroll{left:20px;bottom:20px}
+  /* Manifeste */
+  .manifeste{padding:64px 20px}
+  .mani-h2{font-size:clamp(1.8rem,7vw,2.8rem)}
+  /* Process */
+  .process{padding:64px 20px}
+  /* Inclus */
+  .inclus-left,.inclus-right{padding:48px 20px}
+  /* Tarifs */
+  .tarifs-section{padding:64px 20px}
+  .tarifs-head{margin-bottom:40px}
+  .t-card{padding:36px 24px}
+  /* Demo */
+  .demo{padding:64px 20px}
+  .demo-screen{aspect-ratio:4/3}
+  /* FAQ */
+  .faq{padding:64px 20px}
+  .faq-q{padding:18px 0}
+  /* Contact */
+  .contact-left,.contact-right{padding:48px 20px}
+  /* Footer */
+  .f-bottom{flex-direction:column;align-items:flex-start;gap:14px}
+  .f-legal{flex-wrap:wrap;gap:12px}
+}
+@media(max-width:480px){
+  /* Manifeste stats empilés */
+  .mani-stats{grid-template-columns:1fr}
+  .mani-stat:nth-child(odd){padding-right:0}
+  .mani-stat:nth-child(even){padding-left:0;border-left:none}
+  .mani-stat{border-bottom:1px solid var(--rule);padding-bottom:24px}
+  .mani-stat:last-child{border-bottom:none}
 }
 
 
@@ -1289,7 +1348,19 @@ footer::after{
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact" class="n-btn">Demander un devis</a></li>
   </ul>
+  <button class="n-burger" id="burger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<!-- Menu mobile -->
+<div class="n-mobile" id="mobileMenu" role="dialog" aria-label="Menu de navigation">
+  <a href="#process" class="n-mobile-link">L'offre</a>
+  <a href="#inclus" class="n-mobile-link">Inclus</a>
+  <a href="#tarifs" class="n-mobile-link">Tarifs</a>
+  <a href="#demo" class="n-mobile-link">Démo</a>
+  <a href="#faq" class="n-mobile-link">FAQ</a>
+  <a href="#contact" class="n-mobile-link n-mobile-cta">Demander un devis</a>
+</div>
 
 <!-- ══ HERO ══ -->
 <section class="hero" id="home">
@@ -1720,6 +1791,28 @@ footer::after{
 window.addEventListener('scroll',()=>{
   document.getElementById('nav').classList.toggle('s',scrollY>60);
 });
+
+// ── MENU MOBILE ──
+(function(){
+  var burger = document.getElementById('burger');
+  var menu   = document.getElementById('mobileMenu');
+  if(!burger || !menu) return;
+  function toggle(){
+    var open = menu.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  function close(){
+    menu.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  burger.addEventListener('click', toggle);
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', close); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
+})();
 
 // ── REVEAL ──
 const obs=new IntersectionObserver(entries=>{
