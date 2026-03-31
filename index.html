@@ -1639,32 +1639,33 @@ footer::after{
 
   <div class="contact-right r d2">
     <div class="s-label">Formulaire de contact</div>
-    <form id="contactForm" onsubmit="handleSubmit(event)">
+    <form id="contactForm" name="contact" onsubmit="handleSubmit(event)" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact">
       <div class="f-row">
         <div class="form-group">
           <label class="f-lbl">Prénom</label>
-          <input type="text" class="f-input" placeholder="Marie" required>
+          <input type="text" name="prenom" class="f-input" placeholder="Marie" required>
           <div class="f-underline"></div>
         </div>
         <div class="form-group">
           <label class="f-lbl">Établissement</label>
-          <input type="text" class="f-input" placeholder="Le Café du Coin" required>
+          <input type="text" name="etablissement" class="f-input" placeholder="Le Café du Coin" required>
           <div class="f-underline"></div>
         </div>
       </div>
       <div class="form-group">
         <label class="f-lbl">Email</label>
-        <input type="email" class="f-input" placeholder="contact@monrestaurant.fr" required>
+        <input type="email" name="email" class="f-input" placeholder="contact@monrestaurant.fr" required>
         <div class="f-underline"></div>
       </div>
       <div class="form-group">
         <label class="f-lbl">Type d'établissement</label>
-        <input type="text" class="f-input" placeholder="Restaurant, café, salon...">
+        <input type="text" name="type" class="f-input" placeholder="Restaurant, café, salon...">
         <div class="f-underline"></div>
       </div>
       <div class="form-group">
         <label class="f-lbl">Message</label>
-        <textarea class="f-textarea" placeholder="Dites-nous ce que vous cherchez..."></textarea>
+        <textarea name="message" class="f-textarea" placeholder="Dites-nous ce que vous cherchez..."></textarea>
         <div class="f-underline"></div>
       </div>
       <button type="submit" class="f-submit"><span>Envoyer ma demande →</span></button>
@@ -1907,8 +1908,20 @@ function toggleFaq(el){
 // ── FORM ──
 function handleSubmit(e){
   e.preventDefault();
-  document.getElementById('contactForm').style.display='none';
-  document.getElementById('successMsg').style.display='block';
+  var form = document.getElementById('contactForm');
+  var btn = form.querySelector('.f-submit span');
+  btn.textContent = 'Envoi en cours…';
+  fetch('/', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    body: new URLSearchParams(new FormData(form)).toString()
+  }).then(function(){
+    form.style.display = 'none';
+    document.getElementById('successMsg').style.display = 'block';
+  }).catch(function(){
+    btn.textContent = 'Envoyer ma demande →';
+    alert('Une erreur est survenue, veuillez réessayer ou nous contacter par email.');
+  });
 }
 
 
