@@ -1208,7 +1208,7 @@ footer::before{
 footer::after{
   content:'AURELYS';
   position:absolute;
-  bottom:-20px;left:50%;transform:translateX(-50%);
+  bottom:64px;left:50%;transform:translateX(-50%);
   font-family:'Libre Baskerville',serif;
   font-size:14rem;font-weight:400;font-style:italic;
   color:rgba(255,255,255,.025);
@@ -1767,7 +1767,7 @@ footer::after{
       <div class="f-col-title">Contact</div>
       <ul class="f-links-list">
         <li><a href="mailto:contact@aurelys-studio.fr" data-c="company.email">contact@aurelys-studio.fr</a></li>
-        <li><a href="#">aurelys-studio.fr</a></li>
+        <li><a href="https://aurelysstudio.com" data-c="company.website">aurelysstudio.com</a></li>
         <li><a href="#contact">Demander un devis →</a></li>
       </ul>
     </div>
@@ -2158,6 +2158,12 @@ function handleSubmit(e){
       document.querySelectorAll('[data-c="company.email"]').forEach(function(el) {
         el.textContent = d.company.email;
         if (el.tagName === 'A') el.href = 'mailto:' + d.company.email;
+      });
+    }
+    if (d.company && d.company.website) {
+      document.querySelectorAll('[data-c="company.website"]').forEach(function(el) {
+        el.textContent = d.company.website;
+        if (el.tagName === 'A') el.href = 'https://' + d.company.website.replace(/^https?:\/\//,'');
       });
     }
 
