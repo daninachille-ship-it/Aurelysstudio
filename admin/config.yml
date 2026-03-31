@@ -18,6 +18,7 @@ collections:
         format: json
         fields:
 
+          # ── AGENCE ──────────────────────────────────────────────
           - label: "Agence"
             name: "company"
             widget: "object"
@@ -29,27 +30,64 @@ collections:
               - { label: "Localisation (ville/région)", name: "location", widget: "string", hint: "Ex: Basse-Normandie" }
               - { label: "Zone de service", name: "service_zone", widget: "string", hint: "Ex: Basse-Normandie & France entière" }
               - { label: "Description courte (footer)", name: "description", widget: "text" }
-              - { label: "Texte copyright", name: "copyright", widget: "string", hint: "Ex: © 2025 Aurelys Studio · ..." }
+              - { label: "Texte copyright", name: "copyright", widget: "string" }
 
+          # ── HERO ────────────────────────────────────────────────
           - label: "Hero (bandeau principal)"
             name: "hero"
             widget: "object"
             fields:
-              - { label: "Texte accroche (eyebrow)", name: "eyebrow", widget: "string", hint: "Ex: Agence web — Basse-Normandie" }
+              - { label: "Accroche (eyebrow)", name: "eyebrow", widget: "string", hint: "Ex: Agence web — Basse-Normandie" }
+              - { label: "Description sous le titre", name: "subtext", widget: "text", hint: "Le texte descriptif sous la grande accroche" }
+              - { label: "Bouton principal", name: "cta_primary", widget: "string", hint: "Ex: Demander un devis" }
+              - { label: "Bouton secondaire", name: "cta_secondary", widget: "string", hint: "Ex: Voir une démo →" }
 
+          # ── TARIFS ──────────────────────────────────────────────
           - label: "Tarifs"
             name: "pricing"
             widget: "object"
             summary: "Setup {{fields.setup_price}} · Mensuel {{fields.monthly_price}}"
             fields:
               - { label: "Prix setup", name: "setup_price", widget: "string", hint: "Ex: 1 200 €" }
-              - { label: "Label setup", name: "setup_label", widget: "string", hint: "Ex: Création du site · Une seule fois" }
-              - { label: "Conditions setup", name: "setup_terms", widget: "string", hint: "Ex: HT · paiement en 2 fois · 50% à la commande" }
+              - { label: "Label setup (carte tarifs)", name: "setup_label", widget: "string" }
+              - { label: "Conditions setup", name: "setup_terms", widget: "string" }
               - { label: "Prix mensuel", name: "monthly_price", widget: "string", hint: "Ex: 39 €" }
-              - { label: "Label mensuel", name: "monthly_label", widget: "string", hint: "Ex: Abonnement mensuel · Sans engagement" }
-              - { label: "Conditions mensuel", name: "monthly_terms", widget: "string", hint: "Ex: HT / mois · résiliable à tout moment" }
+              - { label: "Label mensuel (carte tarifs)", name: "monthly_label", widget: "string" }
+              - { label: "Conditions mensuel", name: "monthly_terms", widget: "string" }
               - { label: "Mention légale (bas de page tarifs)", name: "legal_note", widget: "text" }
 
+          # ── L'OFFRE (INCLUS) ────────────────────────────────────
+          - label: "L'offre — Ce qui est inclus"
+            name: "inclus"
+            widget: "object"
+            fields:
+              - { label: "Phrase d'accroche", name: "description", widget: "text" }
+              - label: "Éléments inclus"
+                name: "items"
+                widget: "list"
+                label_singular: "Élément"
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: "Titre", name: "name", widget: "string" }
+                  - { label: "Description courte", name: "desc", widget: "string" }
+
+          # ── DÉMO ────────────────────────────────────────────────
+          - label: "Exemple de réalisation (Démo)"
+            name: "demo"
+            widget: "object"
+            fields:
+              - label: "Photo de l'exemple"
+                name: "photo"
+                widget: "image"
+                required: false
+                hint: "Cette photo s'affichera dans la fenêtre de démo du site. Idéalement une capture d'écran de votre réalisation."
+                media_library:
+                  config:
+                    multiple: false
+              - { label: "Texte de la barre d'URL", name: "url_text", widget: "string", hint: "Ex: aurelysstudio.fr/demo · Maison Blend — Coffee Shop · Paris 9e" }
+              - { label: "Légende sous la fenêtre", name: "caption", widget: "string", hint: "Ex: Design sur-mesure · Admin autonome · Livraison 7 jours" }
+
+          # ── CONTACT ─────────────────────────────────────────────
           - label: "Contact"
             name: "contact"
             widget: "object"
@@ -57,6 +95,7 @@ collections:
               - { label: "Délai affiché", name: "response_time", widget: "string", hint: "Ex: Réponse sous 24h · Livraison 7 jours" }
               - { label: "Conditions de paiement", name: "payment_terms", widget: "string", hint: "Ex: En 2 fois · Virement ou CB" }
 
+          # ── FAQ ─────────────────────────────────────────────────
           - label: "FAQ"
             name: "faq"
             widget: "list"
