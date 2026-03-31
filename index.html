@@ -1319,11 +1319,11 @@ footer::after{
       </h1>
       <div class="hero-sub">
         <div class="hero-sub-line"></div>
-        <p class="hero-sub-txt">Sites web premium pour restaurants, cafés et commerces locaux. Livrés en 7 jours. Modifiables par vous-même, sans aucune compétence technique.</p>
+        <p class="hero-sub-txt" data-c="hero.subtext">Sites web premium pour restaurants, cafés et commerces locaux. Livrés en 7 jours. Modifiables par vous-même, sans aucune compétence technique.</p>
       </div>
       <div class="hero-actions">
-        <a href="#contact" class="btn-hero-p">Demander un devis</a>
-        <a href="#demo" class="btn-hero-g">Voir une démo →</a>
+        <a href="#contact" class="btn-hero-p" data-c="hero.cta_primary">Demander un devis</a>
+        <a href="#demo" class="btn-hero-g" data-c="hero.cta_secondary">Voir une démo →</a>
       </div>
     </div>
 
@@ -1340,7 +1340,7 @@ footer::after{
       <div class="counter-item">
         <div class="counter-tag">Prix fixe setup HT</div>
         <div class="counter-n">
-          <span class="counter-val" data-target="1200" data-prefix="" data-suffix="">0</span>
+          <span class="counter-val" data-target="1200" data-prefix="" data-suffix="" data-c="counter.setup">0</span>
           <span class="counter-suffix"> €</span>
         </div>
         <div class="counter-desc">Paiement en 2 fois · Sans surprise</div>
@@ -1349,7 +1349,7 @@ footer::after{
       <div class="counter-item">
         <div class="counter-tag">Abonnement mensuel HT</div>
         <div class="counter-n">
-          <span class="counter-val" data-target="39" data-suffix="">0</span>
+          <span class="counter-val" data-target="39" data-suffix="" data-c="counter.monthly">0</span>
           <span class="counter-suffix"> €/mois</span>
         </div>
         <div class="counter-desc">Hébergement + support · Sans engagement</div>
@@ -1442,51 +1442,51 @@ footer::after{
   <div class="inclus-left r">
     <div class="s-label">L'offre</div>
     <h2 class="inclus-h2">Tout ce qui<br>est <em>inclus.</em></h2>
-    <p class="inclus-sub">Une offre pensée pour les commerces locaux. Un prix fixe. Aucune surprise.</p>
-    <div class="price-box"><div class="price-lbl">Setup — Création du site</div><div class="price-n">1 200 €<span> HT</span></div></div>
-    <div class="price-box"><div class="price-lbl">Abonnement mensuel</div><div class="price-n">39 €<span> HT/mois</span></div></div>
+    <p class="inclus-sub" data-c="inclus.description">Une offre pensée pour les commerces locaux. Un prix fixe. Aucune surprise.</p>
+    <div class="price-box"><div class="price-lbl">Setup — Création du site</div><div class="price-n"><span data-c="pricing.setup_price">1 200 €</span><span> HT</span></div></div>
+    <div class="price-box"><div class="price-lbl">Abonnement mensuel</div><div class="price-n"><span data-c="pricing.monthly_price">39 €</span><span> HT/mois</span></div></div>
   </div>
   <div class="inclus-right">
     <div class="inc-items" id="incItems">
       <div class="inc-item">
         <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></div>
-        <div class="inc-body"><div class="inc-name">Design premium sur-mesure</div><div class="inc-desc">Aux couleurs et à l'identité de votre établissement</div></div>
+        <div class="inc-body"><div class="inc-name" data-inc-name="0">Design premium sur-mesure</div><div class="inc-desc" data-inc-desc="0">Aux couleurs et à l'identité de votre établissement</div></div>
       </div>
       <div class="inc-item">
         <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div>
-        <div class="inc-body"><div class="inc-name">Interface admin autonome</div><div class="inc-desc">Modifiez tout vous-même, sans développeur</div></div>
+        <div class="inc-body"><div class="inc-name" data-inc-name="1">Interface admin autonome</div><div class="inc-desc" data-inc-desc="1">Modifiez tout vous-même, sans développeur</div></div>
       </div>
       <div class="inc-item">
         <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
-        <div class="inc-body"><div class="inc-name">Responsive mobile</div><div class="inc-desc">Parfait sur téléphone, tablette et desktop</div></div>
+        <div class="inc-body"><div class="inc-name" data-inc-name="2">Responsive mobile</div><div class="inc-desc" data-inc-desc="2">Parfait sur téléphone, tablette et desktop</div></div>
       </div>
       <div class="inc-item">
         <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
-        <div class="inc-body"><div class="inc-name">Google Maps intégré</div><div class="inc-desc">Adresse et itinéraire en un clic</div></div>
+        <div class="inc-body"><div class="inc-name" data-inc-name="3">Google Maps intégré</div><div class="inc-desc" data-inc-desc="3">Adresse et itinéraire en un clic</div></div>
       </div>
       <div class="inc-item">
         <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-        <div class="inc-body"><div class="inc-name">Galerie photos</div><div class="inc-desc">5 emplacements modifiables à tout moment</div></div>
+        <div class="inc-body"><div class="inc-name" data-inc-name="4">Galerie photos</div><div class="inc-desc" data-inc-desc="4">5 emplacements modifiables à tout moment</div></div>
       </div>
       <div class="inc-item">
         <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 10h-1.26A8 8 0 109 20h9a5 5 0 000-10z"/></svg></div>
-        <div class="inc-body"><div class="inc-name">Hébergement + domaine</div><div class="inc-desc">Inclus dans l'abonnement mensuel</div></div>
+        <div class="inc-body"><div class="inc-name" data-inc-name="5">Hébergement + domaine</div><div class="inc-desc" data-inc-desc="5">Inclus dans l'abonnement mensuel</div></div>
       </div>
       <div class="inc-item">
         <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
-        <div class="inc-body"><div class="inc-name">Certificat SSL</div><div class="inc-desc">Site sécurisé https:// dès la mise en ligne</div></div>
+        <div class="inc-body"><div class="inc-name" data-inc-name="6">Certificat SSL</div><div class="inc-desc" data-inc-desc="6">Site sécurisé https:// dès la mise en ligne</div></div>
       </div>
       <div class="inc-item">
         <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-        <div class="inc-body"><div class="inc-name">Bouton réservation</div><div class="inc-desc">TheFork, Resy ou votre numéro direct</div></div>
+        <div class="inc-body"><div class="inc-name" data-inc-name="7">Bouton réservation</div><div class="inc-desc" data-inc-desc="7">TheFork, Resy ou votre numéro direct</div></div>
       </div>
       <div class="inc-item">
         <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg></div>
-        <div class="inc-body"><div class="inc-name">1 révision incluse</div><div class="inc-desc">On ajuste ensemble avant la mise en ligne</div></div>
+        <div class="inc-body"><div class="inc-name" data-inc-name="8">1 révision incluse</div><div class="inc-desc" data-inc-desc="8">On ajuste ensemble avant la mise en ligne</div></div>
       </div>
       <div class="inc-item">
         <div class="inc-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
-        <div class="inc-body"><div class="inc-name">Support email sous 24h</div><div class="inc-desc">Réponse garantie les jours ouvrés</div></div>
+        <div class="inc-body"><div class="inc-name" data-inc-name="9">Support email sous 24h</div><div class="inc-desc" data-inc-desc="9">Réponse garantie les jours ouvrés</div></div>
       </div>
     </div>
   </div>
@@ -1540,9 +1540,9 @@ footer::after{
   <div class="demo-screen">
     <div class="demo-bar">
       <div class="demo-dots"><div class="demo-dot"></div><div class="demo-dot"></div><div class="demo-dot"></div></div>
-      <div class="demo-url">aurelys-studio.fr/demo · Maison Blend — Coffee Shop · Paris 9e</div>
+      <div class="demo-url" data-c="demo.url_text">aurelys-studio.fr/demo · Maison Blend — Coffee Shop · Paris 9e</div>
     </div>
-    <div class="demo-body" style="background:#0C0C0C;display:flex;align-items:center;justify-content:center;">
+    <div id="demoBody" class="demo-body" style="background:#0C0C0C;display:flex;align-items:center;justify-content:center;">
       <div style="display:flex;flex-direction:column;align-items:center;gap:16px;opacity:.25;user-select:none;pointer-events:none;">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
         <span style="font-family:'Outfit',sans-serif;font-size:10px;font-weight:300;letter-spacing:.24em;text-transform:uppercase;color:white">Votre photo ici</span>
@@ -1550,7 +1550,7 @@ footer::after{
     </div>
   </div>
   <div class="demo-caption">
-    <span class="demo-caption-text">Design sur-mesure · Admin autonome · Livraison 7 jours</span>
+    <span class="demo-caption-text" data-c="demo.caption">Design sur-mesure · Admin autonome · Livraison 7 jours</span>
     <a href="#contact" class="demo-cta">Demander votre site →</a>
   </div>
 </section>
@@ -1975,7 +1975,27 @@ function handleSubmit(e){
       document.querySelectorAll(sel).forEach(function(el) { el.textContent = val; });
     }
 
-    // Tarifs
+    // ── Hero ──
+    txt('[data-c="hero.eyebrow"]',      d.hero && d.hero.eyebrow);
+    txt('[data-c="hero.subtext"]',      d.hero && d.hero.subtext);
+    txt('[data-c="hero.cta_primary"]',  d.hero && d.hero.cta_primary);
+    txt('[data-c="hero.cta_secondary"]',d.hero && d.hero.cta_secondary);
+
+    // Counters animés : mise à jour de data-target + valeur finale
+    if (d.pricing) {
+      var setupNum   = parseInt((d.pricing.setup_price   || '').replace(/[^\d]/g, '')) || 1200;
+      var monthlyNum = parseInt((d.pricing.monthly_price || '').replace(/[^\d]/g, '')) || 39;
+      document.querySelectorAll('[data-c="counter.setup"]').forEach(function(el) {
+        el.dataset.target = setupNum;
+        el.textContent = setupNum >= 1000 ? setupNum.toLocaleString('fr-FR') : setupNum;
+      });
+      document.querySelectorAll('[data-c="counter.monthly"]').forEach(function(el) {
+        el.dataset.target = monthlyNum;
+        el.textContent = monthlyNum;
+      });
+    }
+
+    // ── Tarifs ──
     txt('[data-c="pricing.setup_price"]',   d.pricing && d.pricing.setup_price);
     txt('[data-c="pricing.setup_label"]',   d.pricing && d.pricing.setup_label);
     txt('[data-c="pricing.setup_terms"]',   d.pricing && d.pricing.setup_terms);
@@ -1984,15 +2004,37 @@ function handleSubmit(e){
     txt('[data-c="pricing.monthly_terms"]', d.pricing && d.pricing.monthly_terms);
     txt('[data-c="pricing.legal_note"]',    d.pricing && d.pricing.legal_note);
 
-    // Hero
-    txt('[data-c="hero.eyebrow"]', d.hero && d.hero.eyebrow);
+    // ── L'offre (inclus) ──
+    txt('[data-c="inclus.description"]', d.inclus && d.inclus.description);
+    if (d.inclus && Array.isArray(d.inclus.items)) {
+      d.inclus.items.forEach(function(item, i) {
+        var n = document.querySelector('[data-inc-name="' + i + '"]');
+        var desc = document.querySelector('[data-inc-desc="' + i + '"]');
+        if (n)    n.textContent    = item.name;
+        if (desc) desc.textContent = item.desc;
+      });
+    }
 
-    // Société
+    // ── Démo ──
+    txt('[data-c="demo.url_text"]', d.demo && d.demo.url_text);
+    txt('[data-c="demo.caption"]',  d.demo && d.demo.caption);
+    if (d.demo && d.demo.photo) {
+      var demoBody = document.getElementById('demoBody');
+      if (demoBody) {
+        demoBody.innerHTML = '';
+        demoBody.style.padding = '0';
+        var img = document.createElement('img');
+        img.src = d.demo.photo;
+        img.alt = d.demo.url_text || 'Exemple de réalisation';
+        img.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;';
+        demoBody.appendChild(img);
+      }
+    }
+
+    // ── Société ──
     txt('[data-c="company.service_zone"]', d.company && d.company.service_zone);
     txt('[data-c="company.description"]',  d.company && d.company.description);
     txt('[data-c="company.copyright"]',    d.company && d.company.copyright);
-
-    // Email (texte + href)
     if (d.company && d.company.email) {
       document.querySelectorAll('[data-c="company.email"]').forEach(function(el) {
         el.textContent = d.company.email;
@@ -2000,11 +2042,11 @@ function handleSubmit(e){
       });
     }
 
-    // Contact
-    txt('[data-c="contact.response_time"]',  d.contact && d.contact.response_time);
-    txt('[data-c="contact.payment_terms"]',  d.contact && d.contact.payment_terms);
+    // ── Contact ──
+    txt('[data-c="contact.response_time"]', d.contact && d.contact.response_time);
+    txt('[data-c="contact.payment_terms"]', d.contact && d.contact.payment_terms);
 
-    // FAQ
+    // ── FAQ ──
     if (d.faq && Array.isArray(d.faq)) {
       d.faq.forEach(function(item, i) {
         var q = document.querySelector('[data-faq-q="' + i + '"]');

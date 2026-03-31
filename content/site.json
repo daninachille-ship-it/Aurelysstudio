@@ -9,7 +9,10 @@
     "copyright": "© 2025 Aurelys Studio · Basse-Normandie, France · TVA non applicable (art. 293 B CGI)"
   },
   "hero": {
-    "eyebrow": "Agence web — Basse-Normandie"
+    "eyebrow": "Agence web — Basse-Normandie",
+    "subtext": "Sites web premium pour restaurants, cafés et commerces locaux. Livrés en 7 jours. Modifiables par vous-même, sans aucune compétence technique.",
+    "cta_primary": "Demander un devis",
+    "cta_secondary": "Voir une démo →"
   },
   "pricing": {
     "setup_price": "1 200 €",
@@ -19,6 +22,26 @@
     "monthly_label": "Abonnement mensuel · Sans engagement",
     "monthly_terms": "HT / mois · résiliable à tout moment",
     "legal_note": "TVA non applicable · micro-entreprise (art. 293 B du CGI) · Le site vous appartient intégralement dès le paiement du setup"
+  },
+  "inclus": {
+    "description": "Une offre pensée pour les commerces locaux. Un prix fixe. Aucune surprise.",
+    "items": [
+      { "name": "Design premium sur-mesure", "desc": "Aux couleurs et à l'identité de votre établissement" },
+      { "name": "Interface admin autonome", "desc": "Modifiez tout vous-même, sans développeur" },
+      { "name": "Responsive mobile", "desc": "Parfait sur téléphone, tablette et desktop" },
+      { "name": "Google Maps intégré", "desc": "Adresse et itinéraire en un clic" },
+      { "name": "Galerie photos", "desc": "5 emplacements modifiables à tout moment" },
+      { "name": "Hébergement + domaine", "desc": "Inclus dans l'abonnement mensuel" },
+      { "name": "Certificat SSL", "desc": "Site sécurisé https:// dès la mise en ligne" },
+      { "name": "Bouton réservation", "desc": "TheFork, Resy ou votre numéro direct" },
+      { "name": "1 révision incluse", "desc": "On ajuste ensemble avant la mise en ligne" },
+      { "name": "Support email sous 24h", "desc": "Réponse garantie les jours ouvrés" }
+    ]
+  },
+  "demo": {
+    "photo": "",
+    "url_text": "aurelys-studio.fr/demo · Maison Blend — Coffee Shop · Paris 9e",
+    "caption": "Design sur-mesure · Admin autonome · Livraison 7 jours"
   },
   "contact": {
     "response_time": "Réponse sous 24h · Livraison 7 jours",
