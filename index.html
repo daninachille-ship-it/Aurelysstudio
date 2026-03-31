@@ -243,17 +243,6 @@ nav.s .n-btn{background:var(--accent)!important;border-color:var(--accent)}
   .hero-scroll{left:24px}
 }
 
-/* ══ STATS BAND ══ */
-.stats-band{background:var(--accent);display:grid;grid-template-columns:repeat(3,1fr);position:relative;overflow:hidden}
-.sb-item{position:relative;z-index:1}
-.sb-item{padding:48px 56px;border-right:1px solid rgba(248,246,241,.08);display:flex;flex-direction:column;gap:8px;cursor:default;transition:background .3s;position:relative;overflow:hidden}
-.sb-item::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:rgba(255,255,255,.15);transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
-.sb-item:hover{background:rgba(255,255,255,.05)}
-.sb-item:hover::after{transform:scaleX(1)}
-.sb-item:last-child{border-right:none}
-.sb-n{font-family:'Libre Baskerville',serif;font-size:clamp(2.5rem,4vw,4rem);font-weight:400;color:var(--paper);letter-spacing:-.04em;line-height:1}
-.sb-l{font-size:10px;font-weight:300;letter-spacing:.18em;text-transform:uppercase;color:rgba(248,246,241,.4)}
-@media(max-width:768px){.stats-band{grid-template-columns:1fr}.sb-item{padding:32px 24px;border-right:none;border-bottom:1px solid rgba(248,246,241,.08)}.sb-item:last-child{border-bottom:none}}
 
 /* ══ SECTIONS COMMUNES ══ */
 .r{opacity:0;transform:translateY(32px);transition:opacity .8s ease,transform .8s ease}
@@ -1370,12 +1359,6 @@ footer::after{
   </div>
 </section>
 
-<!-- STATS BAND -->
-<div class="stats-band">
-  <div class="sb-item r"><div class="sb-n">7 j</div><div class="sb-l">Délai de livraison garanti</div></div>
-  <div class="sb-item r d1"><div class="sb-n" data-c="pricing.setup_price">1 200 €</div><div class="sb-l">Setup fixe HT · Paiement en 2 fois</div></div>
-  <div class="sb-item r d2"><div class="sb-n" data-c="pricing.monthly_price">39 €</div><div class="sb-l">Abonnement mensuel HT · Sans engagement</div></div>
-</div>
 
 <!-- MANIFESTE -->
 <section class="manifeste" id="manifeste">
