@@ -748,6 +748,9 @@ nav.s .n-burger span{background:var(--ink)}
   .tarifs-section{padding:80px 24px}
   .tarifs-grid{grid-template-columns:1fr;gap:16px}
   .t-card{padding:40px 28px}
+  /* Désactive les animations hover qui bloquent le tap sur mobile */
+  .t-cta{transform:none!important;-webkit-tap-highlight-color:transparent}
+  .t-cta::before,.t-cta.p::after{display:none}
 }
 
 /* ══ DEMO ══ */
